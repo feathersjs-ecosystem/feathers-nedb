@@ -4,7 +4,6 @@
   "description": "Create an NeDB service for FeathersJS.",
   "main": "lib/feathers-nedb.js",
   "scripts": {
-    "prepublish": "npm run build",
     "publish": "git push origin --tags",
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
