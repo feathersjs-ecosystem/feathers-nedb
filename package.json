@@ -3,6 +3,16 @@
   "version": "0.0.1",
   "description": "Create an NeDB service for FeathersJS.",
   "main": "lib/feathers-nedb.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "publish": "git push origin --tags",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "jshint": "jshint lib/. test/. --config",
+    "mocha": "mocha test/ --recursive --timeout 5000",
+    "test": "npm run jshint && npm run mocha"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/feathersjs/feathers-nedb.git"
