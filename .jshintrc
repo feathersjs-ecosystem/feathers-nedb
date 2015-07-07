@@ -19,6 +19,7 @@
     "smarttabs": true,
     "white": false,
     "loopfunc": true,
+    "expr": true,
     "globals": {
         "it": true,
         "describe": true,
