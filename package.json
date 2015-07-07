@@ -1,6 +1,6 @@
 {
   "name": "feathers-nedb",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create an NeDB service for FeathersJS.",
   "main": "lib/feathers-nedb.js",
   "scripts": {
