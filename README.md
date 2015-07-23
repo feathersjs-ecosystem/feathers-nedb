@@ -1,8 +1,8 @@
-feathers-nedb Service
-=========================
+# feathers-nedb
 
 [![NPM](https://nodei.co/npm/feathers-nedb.png?downloads=true&stars=true)](https://nodei.co/npm/feathers-nedb/)
 
+[![Build Status](https://travis-ci.org/feathersjs/feathers-nedb.png?branch=master)](https://travis-ci.org/feathersjs/feathers-nedb)
 
 > Create an [NeDB](https://github.com/louischatriot/nedb) Service for [FeatherJS](https://github.com/feathersjs).
 
@@ -16,7 +16,7 @@ npm install feathers-nedb --save
 
 Creating an NeDB service is this simple:
 
-```
+```js
 var nedb = require('feathers-nedb');
 app.use('todos', nedb('todos'));
 // nedb('todos', 'path-to-db')
