@@ -1,7 +1,31 @@
 {
   "name": "feathers-nedb",
+  "description": "Feathers NeDB Service",
   "version": "0.1.0",
-  "description": "Create an NeDB service for FeathersJS.",
+  "homepage": "https://github.com/feathersjs/feathers-nedb",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feathersjs/feathers-nedb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/feathersjs/feathers-nedb/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "feathers",
+    "feathers-plugin",
+    "REST",
+    "Socket.io",
+    "realtime",
+    "nedb",
+    "service"
+  ],
+  "author": "Feathers <hello@feathersjs.com> (http://feathersjs.com)",
+  "contributors": [
+    "Eric Kryski <e.kryski@gmail.com> (http://erickryski.com)",
+    "David Luecke <daff@neyeon.de> (http://neyeon.com)",
+    "Marshall Thompson <marshall@creativeideal.net> (https://github.com/marshallswain)"
+  ],
   "main": "lib/feathers-nedb.js",
   "scripts": {
     "publish": "git push origin --tags",
@@ -12,37 +36,15 @@
     "mocha": "mocha test/ --recursive --timeout 5000",
     "test": "npm run jshint && npm run mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/feathersjs/feathers-nedb.git"
+  "engines": {
+    "node": "~0.10.0",
+    "npm": "~1.4.0"
   },
-  "keywords": [
-    "feathers",
-    "feathers-plugin",
-    "REST",
-    "Socket.io",
-    "realtime",
-    "nedb",
-    "mongodb",
-    "mongo",
-    "service"
-  ],
-  "author": {
-    "name": "Marshall Thompson",
-    "email": "marshall@creativeideal.net",
-    "url": "https://github.com/marshallswain"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/feathersjs/feathers-nedb/issues"
-  },
-  "homepage": "https://github.com/feathersjs/feathers-nedb",
   "dependencies": {
     "feathers-errors": "^0.2.5",
     "nedb": "^1.1.2",
     "uberproto": "^1.1.2"
   },
-  "readmeFilename": "README.md",
   "devDependencies": {
     "async": "^1.3.0",
     "chai": "^3.0.0",
