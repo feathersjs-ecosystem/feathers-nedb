@@ -144,6 +144,9 @@ query: {
 
 
 ## Changelog
+### 0.1.1
+* Minor license and documentation updates
+
 ### 0.1.0
 * Initial release.
 
