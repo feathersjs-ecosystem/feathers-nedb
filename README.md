@@ -62,7 +62,10 @@ app.listen(port, function() {
 You can run this example by using `node examples/basic` and going to [localhost:8080/todos](http://localhost:8080/todos). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new todos service, including mongoose validations!
 
 ## Options
-By default your database will be created inside of `db-data`. If
+
+The following options can be passed when creating a new NeDB service:
+
+- `path` - the location of the database file. By default your database will be created inside of `./db-data`.
 
 ## Special Query Params
 The `find` API allows the use of `$limit`, `$skip`, `$sort`, and `$select` in the query.  These special parameters can be passed directly inside the query object:
