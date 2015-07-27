@@ -21,12 +21,11 @@ Creating an NeDB service is this simple:
 
 ```js
 var nedb = require('feathers-nedb');
-app.use('todos', nedb('todos'));
+app.use('todos', nedb('todos', options));
 // nedb('todos', 'path-to-db')
 ```
 
 This will create a `todos` datastore file in the `db-data` directory and automatically load it.  If you delete that file, the data will be deleted.
-
 
 ### Complete Example
 
@@ -57,20 +56,16 @@ app.use('todos', new nedbService('todos'));
 // Start the server.
 var port = 8080;
 app.listen(port, function() {
-	console.log('Feathers server listening on port ' + port);
+  console.log('Feathers server listening on port ' + port);
 });
 ```
 
 You can run this example by using `node examples/basic` and going to [localhost:8080/todos](http://localhost:8080/todos). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new todos service, including mongoose validations!
 
+## Options
+By default your database will be created inside of `db-data`. If
 
-### Optimized for Client-side Frameworks
-
-To work better, out of the box, with client-side frameworks, such as [CanJS](www.canjs.com), `feathers-nedb` allows you to use query options such as limit, skip, sort, and select by using `'$limit'`, `'$skip'`, `'$sort'`, and `'$select'` directly in the query object.
-
-Although it probably works well with most client-side frameworks, `feathers-nedb` was built with CanJS in mind.  If you're making a CanJS app, consider using the [canjs-feathers plugin](https://github.com/feathersjs/canjs-feathers).
-
-### Special Query Params
+## Special Query Params
 The `find` API allows the use of `$limit`, `$skip`, `$sort`, and `$select` in the query.  These special parameters can be passed directly inside the query object:
 
 ```js
