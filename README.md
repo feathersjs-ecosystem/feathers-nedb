@@ -21,7 +21,6 @@ Creating an NeDB service is this simple:
 ```js
 var nedb = require('feathers-nedb');
 app.use('todos', nedb('todos', options));
-// nedb('todos', 'path-to-db')
 ```
 
 This will create a `todos` datastore file in the `db-data` directory and automatically load it.  If you delete that file, the data will be deleted.
