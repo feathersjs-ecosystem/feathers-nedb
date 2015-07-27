@@ -22,9 +22,9 @@
   ],
   "author": "Feathers <hello@feathersjs.com> (http://feathersjs.com)",
   "contributors": [
+    "Marshall Thompson <marshall@creativeideal.net> (https://github.com/marshallswain)",
     "Eric Kryski <e.kryski@gmail.com> (http://erickryski.com)",
-    "David Luecke <daff@neyeon.de> (http://neyeon.com)",
-    "Marshall Thompson <marshall@creativeideal.net> (https://github.com/marshallswain)"
+    "David Luecke <daff@neyeon.de> (http://neyeon.com)"
   ],
   "main": "lib/feathers-nedb.js",
   "scripts": {
@@ -41,6 +41,7 @@
     "npm": "~1.4.0"
   },
   "dependencies": {
+    "feathers-query-filters": 
     "feathers-errors": "^0.2.5",
     "nedb": "^1.1.2",
     "uberproto": "^1.1.2"
