@@ -1,4 +1,5 @@
-# feathers-nedb
+feathers-nedb
+================
 
 [![NPM](https://nodei.co/npm/feathers-nedb.png?downloads=true&stars=true)](https://nodei.co/npm/feathers-nedb/)
 
@@ -26,6 +27,9 @@ app.use('todos', nedb('todos'));
 
 This will create a `todos` datastore file in the `db-data` directory and automatically load it.  If you delete that file, the data will be deleted.
 
+
+### Complete Example
+
 Here's an example of a Feathers server with a `todos` nedb-service.
 
 ```js
@@ -37,11 +41,11 @@ var feathers = require('feathers'),
 // Create a feathers instance.
 var app = feathers()
   // Setup the public folder.
-  .use(feathers.static(__dirname + '/public'));
+  .use(feathers.static(__dirname + '/public'))
   // Enable Socket.io
   .configure(feathers.socketio())
   // Enable REST services
-  .configure(feathers.rest());
+  .configure(feathers.rest())
   // Turn on JSON parser for REST services
   .use(bodyParser.json())
   // Turn on URL-encoded parser for REST services
@@ -57,8 +61,7 @@ app.listen(port, function() {
 });
 ```
 
-
-Now, you can use the todos example from [feathersjs.com](http://feathersjs.com) and place it in the public directory.  Fire up the server and your todos will persist in the database.
+You can run this example by using `node examples/basic` and going to [localhost:8080/todos](http://localhost:8080/todos). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new todos service, including mongoose validations!
 
 
 ### Optimized for Client-side Frameworks
