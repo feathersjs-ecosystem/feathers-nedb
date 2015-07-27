@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "feathers-errors": "^0.2.5",
+    "feathers-query-filters": "^1.0.0",
     "nedb": "^1.1.2",
     "uberproto": "^1.1.2"
   },
