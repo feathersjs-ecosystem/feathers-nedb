@@ -142,7 +142,7 @@ query: {
 
 ## API
 
-`feathers-nedb` services comply with the standard [FeathersJS API](http://feathersjs.com/api/#).
+`feathers-nedb` services comply with the standard [FeathersJS API](http://feathersjs.com/docs).
 
 
 ## Changelog
