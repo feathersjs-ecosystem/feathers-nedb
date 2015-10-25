@@ -1,6 +1,6 @@
 var feathers = require('feathers'),
   bodyParser = require('body-parser'),
-  nedbService = require('../lib/feathers-nedb');
+  nedbService = require('../lib');
 
 // Create a feathers instance.
 var app = feathers()

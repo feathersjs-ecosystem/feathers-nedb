@@ -26,7 +26,7 @@
     "Eric Kryski <e.kryski@gmail.com> (http://erickryski.com)",
     "David Luecke <daff@neyeon.de> (http://neyeon.com)"
   ],
-  "main": "lib/feathers-nedb.js",
+  "main": "lib/",
   "scripts": {
     "publish": "git push origin --tags",
     "release:patch": "npm version patch && npm publish",

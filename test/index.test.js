@@ -2,7 +2,7 @@ var chai = require('chai'),
   expect = chai.expect,
   feathers = require('feathers'),
   async = require('async'),
-  nedbService = require('../lib/feathers-nedb');
+  nedbService = require('../lib');
 
 
 var app = feathers()
