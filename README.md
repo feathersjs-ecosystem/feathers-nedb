@@ -273,7 +273,7 @@ query: {
 
 ## Changelog
 
-__1.1.0__
+__1.2.0__
 
 - Migration to shared service test suite ([#4](https://github.com/feathersjs/feathers-nedb/pull/4))
 
