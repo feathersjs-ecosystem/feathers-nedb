@@ -52,3 +52,5 @@ Session.vim
 
 # === Webstorm ===
 .idea
+
+lib/
