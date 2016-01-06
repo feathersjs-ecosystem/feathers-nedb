@@ -7,12 +7,16 @@ import { nfcall, getSelect, multiOptions, mapItems } from './utils';
 
 // Create the service.
 class Service {
-	constructor(options = {}) {
-		if(!options.db) {
-			throw new Error('NeDB datastore `db` needs to be provided');
+	constructor(options) {
+		if (!options) {
+		  throw new Error('NeDB options have to be provided');
 		}
 
-		this.db = options.db;
+		if (!options.Model) {
+			throw new Error('NeDB datastore `Model` needs to be provided');
+		}
+
+		this.Model = options.Model;
 		this.id = options.id || '_id';
 		this.paginate = options.paginate || {};
 	}
@@ -25,12 +29,12 @@ class Service {
 		params.query = params.query || {};
 
 		// Start with finding all, and limit when necessary.
-		let query = this.db.find(params.query);
+		let query = this.Model.find(params.query);
 		let filters = filter(params.query, this.paginate);
 
 		// $select uses a specific find syntax, so it has to come first.
 		if (filters.$select) {
-			query = this.db.find(params.query, getSelect(filters.$select));
+			query = this.Model.find(params.query, getSelect(filters.$select));
 		}
 
 		// Handle $sort
@@ -49,7 +53,7 @@ class Service {
 		}
 
 		if(this.paginate.default && params.paginate !== false) {
-			return nfcall(this.db, 'count', params.query).then(total => {
+			return nfcall(this.Model, 'count', params.query).then(total => {
 				return nfcall(query, 'exec').then(data => {
 					return {
 						total,
@@ -66,7 +70,7 @@ class Service {
 	}
 
 	get(_id) {
-		return nfcall(this.db, 'findOne', { _id }).then(doc => {
+		return nfcall(this.Model, 'findOne', { _id }).then(doc => {
 			if(!doc) {
 				throw new errors.NotFound(`No record found for id '${_id}'`);
 			}
@@ -76,7 +80,7 @@ class Service {
 	}
 
 	create(data) {
-		return nfcall(this.db, 'insert', data);
+		return nfcall(this.Model, 'insert', data);
 	}
 
 	patch(id, data, params) {
@@ -86,7 +90,7 @@ class Service {
 		delete data[this.id];
 
 		// Run the query
-		return nfcall(this.db, 'update', query, { $set: data }, options)
+		return nfcall(this.Model, 'update', query, { $set: data }, options)
 			.then(() => this.find({ query, paginate: false }).then(mapItems(id)));
 	}
 
@@ -100,7 +104,7 @@ class Service {
 		// We can not update the id
 		delete data[this.id];
 
-		return nfcall(this.db, 'update', query, data, options)
+		return nfcall(this.Model, 'update', query, data, options)
 			.then(() => this.get(id));
 	}
 
@@ -108,7 +112,7 @@ class Service {
 		let { query, options } = multiOptions(id, params);
 
 		return this.find({ query, paginate: false }).then(items =>
-			nfcall(this.db, 'remove', query, options)
+			nfcall(this.Model, 'remove', query, options)
 				.then(() => mapItems(id)(items)
 			)
 		);
