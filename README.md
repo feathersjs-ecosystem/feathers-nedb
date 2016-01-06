@@ -386,6 +386,7 @@ __2.0.0__
 
 - Remove NeDB dependency
 - Migration to ES6 and latest service test suite
+- Changing the way that NeDB services are initialized to be compliant with Feathers 2.0.
 
 __1.2.0__
 
