@@ -1,3 +1,6 @@
+/*jshint expr: true*/
+
+import { expect } from 'chai';
 import path from 'path';
 import fs from 'fs';
 import assert from 'assert';
@@ -6,7 +9,7 @@ import NeDB from 'nedb';
 import { base, example } from 'feathers-service-tests';
 import errors from 'feathers-errors';
 
-import server from '../examples/basic';
+import server from '../examples/app';
 import service from '../src';
 
 // NeDB ids do not seem to be generated sequentially but sorted lexigraphically
@@ -16,7 +19,7 @@ let counter = 0;
 
 const filename = path.join('db-data', 'people');
 const db = new NeDB({ filename, autoload: true });
-const nedbService = service({ db }).extend({
+const nedbService = service({ Model: db }).extend({
   find(params) {
     params.query = params.query || {};
     if(!params.query.$sort) {
@@ -42,27 +45,55 @@ describe('NeDB Service', function() {
   before(clean);
   after(clean);
 
-  beforeEach(function(done) {
-    db.insert({
-      name: 'Doug',
-      age: 32
-    }, function(error, data) {
-      if(error) {
-        return done(error);
-      }
+  describe('Initialization', () => {
+    describe('when missing options', () => {
+      it('throws an error', () => {
+        expect(service.bind(null)).to.throw('NeDB options have to be provided');
+      });
+    });
 
-      _ids.Doug = data._id;
-      done();
+    describe('when missing a Model', () => {
+      it('throws an error', () => {
+        expect(service.bind(null, {})).to.throw('NeDB datastore `Model` needs to be provided');
+      });
+    });
+
+    describe('when missing the id option', () => {
+      it('sets the default to be _id', () => {
+        expect(people.id).to.equal('_id');
+      });
+    });
+
+    describe('when missing the paginate option', () => {
+      it('sets the default to be {}', () => {
+        expect(people.paginate).to.deep.equal({});
+      });
     });
   });
 
-  afterEach(done => db.remove({ _id: _ids.Doug }, () => done()));
+  describe('Common functionality', () => {
+    beforeEach(function(done) {
+      db.insert({
+        name: 'Doug',
+        age: 32
+      }, function(error, data) {
+        if(error) {
+          return done(error);
+        }
 
-  it('is CommonJS compatible', () => {
-    assert.ok(typeof require('../lib') === 'function');
+        _ids.Doug = data._id;
+        done();
+      });
+    });
+
+    afterEach(done => db.remove({ _id: _ids.Doug }, () => done()));
+
+    it('is CommonJS compatible', () => {
+      assert.ok(typeof require('../lib') === 'function');
+    });
+
+    base(people, _ids, errors, '_id');
   });
-
-  base(people, _ids, errors, '_id');
 });
 
 describe('NeDB service example test', () => {
