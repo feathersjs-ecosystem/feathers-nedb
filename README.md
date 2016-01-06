@@ -60,7 +60,7 @@ var app = feathers()
 
 // Connect to the db, create and register a Feathers service.
 app.use('todos', service({
-  db: db,
+  Model: db,
   paginate: {
     default: 2,
     max: 4
@@ -74,7 +74,7 @@ app.listen(port, function() {
 });
 ```
 
-You can run this example by using `node examples/basic` and going to [localhost:8080/todos](http://localhost:8080/todos). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new todos service.
+You can run this example by using `node examples/app` and going to [localhost:3030/todos](http://localhost:3030/todos). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new todos service.
 
 ## Extending
 
@@ -100,7 +100,7 @@ var db = new NeDB({
 var app = feathers()
   .configure(hooks())
   .use('/todos', service({
-    db: db,
+    Model: db,
     paginate: {
       default: 2,
       max: 4
@@ -140,7 +140,7 @@ const db = new NeDB({
 });
 
 app.use('/todos', new MyService({
-  db,
+  Model: db,
   paginate: {
     default: 2,
     max: 4
@@ -159,7 +159,7 @@ var db = new NeDB({
   autoload: true
 });
 var myService = service({
-  db: db,
+  Model: db,
   paginate: {
     default: 2,
     max: 4
