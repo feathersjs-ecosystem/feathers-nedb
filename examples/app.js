@@ -14,7 +14,7 @@ var db = new NeDB({
 var counter = 0;
 
 var todoService = service({
-  db: db,
+  Model: db,
   paginate: {
     default: 2,
     max: 4
