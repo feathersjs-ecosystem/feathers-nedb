@@ -19,11 +19,14 @@ npm install feathers-nedb --save
 Creating an NeDB service is this simple:
 
 ```js
-var nedb = require('feathers-nedb');
+var service = require('feathers-nedb');
+var nedb = require('nedb');
+
+
 app.use('todos', nedb('todos', options));
 ```
 
-This will create a `todos` datastore file in the `db-data` directory and automatically load it.  If you delete that file, the data will be deleted.
+This will create a `todos` datastore file in the `db-data` directory and automatically load it. If you delete that file, the data will be deleted.
 
 
 ### Complete Example
@@ -32,9 +35,15 @@ Here's an example of a Feathers server with a `todos` nedb-service.
 
 ```js
 // server.js
-var feathers = require('feathers'),
-  bodyParser = require('body-parser'),
-  nedb = require('feathers-nedb');
+var NeDB = require('nedb');
+var feathers = require('feathers');
+var bodyParser = require('body-parser');
+var service = require('feathers-nedb');
+
+var db = new NeDB({
+  filename: './data/todos.db',
+  autoload: true
+});
 
 // Create a feathers instance.
 var app = feathers()
@@ -47,72 +56,123 @@ var app = feathers()
   // Turn on JSON parser for REST services
   .use(bodyParser.json())
   // Turn on URL-encoded parser for REST services
-  .use(bodyParser.urlencoded({extended: true}))
+  .use(bodyParser.urlencoded({extended: true}));
 
 // Connect to the db, create and register a Feathers service.
-app.use('todos', nedb('todos'));
+app.use('todos', service({
+  Model: db,
+  paginate: {
+    default: 2,
+    max: 4
+  }
+}));
 
 // Start the server.
-var port = 8080;
+var port = 3030;
 app.listen(port, function() {
   console.log('Feathers server listening on port ' + port);
 });
 ```
 
-You can run this example by using `node examples/basic` and going to [localhost:8080/todos](http://localhost:8080/todos). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new todos service, including mongoose validations!
+You can run this example by using `node examples/app` and going to [localhost:3030/todos](http://localhost:3030/todos). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new todos service.
 
+## Extending
 
-### Extending
+There are several ways to extend the basic CRUD functionality of this service.
 
-You can also extend any of the feathers services to do something custom.
+_Keep in mind that calling the original service methods will return a Promise that resolves with the value._
 
-```js
-var feathers = require('feathers');
-var nedb = require('feathers-nedb');
-var app = feathers();
+### feathers-hooks
 
-var myUserService = nedb('users').extend({
-  find: function(params, cb){
-    // Do something awesome!
-
-    console.log('I am extending the find method');
-
-    this._super.apply(this, arguments);
-  }
-});
-
-app.configure(feathers.rest())
-   .use('/users', myUserService)
-   .listen(8080);
-```
-
-### With hooks
-
-Another option is to weave functionality into your existing services using [feathers-hooks](https://github.com/feathersjs/feathers-hooks), for example the above `createdAt` and `updatedAt` functionality:
+The most flexible option is weaving in functionality through [feathers-hooks](https://github.com/feathersjs/feathers-hooks), for example, the
+user that made the request could be added like this:
 
 ```js
 var feathers = require('feathers');
 var hooks = require('feathers-hooks');
-var nedb = require('feathers-nedb');
+var service = require('feathers-nedb');
+var NeDB = require('nedb');
+var db = new NeDB({
+  filename: './data/todos.db',
+  autoload: true
+});
 
-// Initialize a MongoDB service with the users collection on a local MongoDB instance
 var app = feathers()
   .configure(hooks())
-  .use('/users', nedb('users'));
+  .use('/todos', service({
+    Model: db,
+    paginate: {
+      default: 2,
+      max: 4
+    }
+  }));
 
-app.lookup('users').before({
+app.service('todos').before({
+  // You can create a single hook like this
   create: function(hook, next) {
-    hook.data.createdAt = new Date();
-    next();
-  },
-
-  update: function(hook, next) {
-    hook.data.updatedAt = new Date();
+    hook.data.user_id = hook.params.user.id;
     next();
   }
 });
 
-app.listen(8080);
+app.listen(3030);
+```
+
+### Classes (ES6)
+
+The module also exports a Babel transpiled ES6 class as `Service` that can be directly extended like this:
+
+```js
+import NeDB from 'nedb';
+import { Service } from 'feathers-nedb';
+
+class MyService extends Service {
+  create(data, params) {
+    data.user_id = params.user.id;
+
+    return super.create(data, params);
+  }
+}
+
+const db = new NeDB({
+  filename: './data/todos.db',
+  autoload: true
+});
+
+app.use('/todos', new MyService({
+  Model: db,
+  paginate: {
+    default: 2,
+    max: 4
+  }
+}));
+```
+
+### Uberproto (ES5)
+
+You can also use `.extend` on a service instance (extension is provided by [Uberproto](https://github.com/daffl/uberproto)):
+
+```js
+var NeDB = require('nedb');
+var db = new NeDB({
+  filename: './data/todos.db',
+  autoload: true
+});
+var myService = service({
+  Model: db,
+  paginate: {
+    default: 2,
+    max: 4
+  }
+}).extend({
+  create: function(data, params) {
+    data.user_id = params.user.id;
+
+    return this._super.apply(this, arguments);
+  }
+});
+
+app.use('/todos', myService);
 ```
 
 
@@ -120,7 +180,56 @@ app.listen(8080);
 
 The following options can be passed when creating a new NeDB service:
 
-- `path` - the location of the database file. By default your database will be created inside of `./db-data`.
+- `db` - The NeDB database instance
+- `id` (default: `_id`) [optional] - The name of the id property
+- `paginate` [optional] - A pagination object containing a `default` and `max` page size (see below)
+
+
+## Pagination
+
+When initializing the service you can set the following pagination options in the `paginate` object:
+
+- `default` - Sets the default number of items
+- `max` - Sets the maximum allowed number of items per page (even if the `$limit` query parameter is set higher)
+
+When `paginate.default` is set, `find` will return an object (instead of the normal array) in the following form:
+
+```
+{
+  "total": "<total number of records>",
+  "limit": "<max number of items per page>",
+  "skip": "<number of skipped items (offset)>",
+  "data": [/* data */]
+}
+```
+
+
+## Migrating
+
+Version 2 of this adapter no longer brings its own NeDB dependency. This means that you now have to provide your own NeDB data store instance, changing something like
+
+```js
+var nedb = require('feathers-nedb');
+app.use('todos', nedb('todos', options));
+```
+
+To
+
+```js
+var nedb = require('nedb');
+var service = require('feathers-nedb');
+
+var db = new NeDB({
+  filename: './data/todos.db',
+  autoload: true
+});
+
+var todoService = service({
+  db: db
+});
+
+app.use('todos', todoService);
+```
 
 
 ## Query Parameters
@@ -129,9 +238,9 @@ The `find` API allows the use of `$limit`, `$skip`, `$sort`, and `$select` in th
 
 ```js
 // Find all recipes that include salt, limit to 10, only include name field.
-{"ingredients":"salt", "$limit":10, "$select": { "name" :1 } } // JSON
+{"ingredients":"salt", "$limit":10, "$select": ["name"] } } // JSON
 
-GET /?ingredients=salt&$limit=10&$select[name]=1 // HTTP
+GET /?ingredients=salt&$limit=10&$select[]=name // HTTP
 ```
 
 As a result of allowing these to be put directly into the query string, you won't want to use `$limit`, `$skip`, `$sort`, or `$select` as the name of fields in your document schema.
@@ -273,6 +382,11 @@ query: {
 
 ## Changelog
 
+__2.0.0__
+
+- Remove NeDB dependency
+- Migration to ES6 and latest service test suite
+
 __1.2.0__
 
 - Migration to shared service test suite ([#4](https://github.com/feathersjs/feathers-nedb/pull/4))
@@ -289,11 +403,13 @@ __0.1.0__
 
 - Initial release.
 
+
 ## License
 
 Copyright (c) 2015
 
 Licensed under the [MIT license](LICENSE).
+
 
 ## Author
 
