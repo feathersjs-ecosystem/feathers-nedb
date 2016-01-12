@@ -40,8 +40,8 @@
     "test": "rm -rf db-data && npm run compile && npm run jshint && npm run mocha"
   },
   "engines": {
-    "node": "~0.10.0",
-    "npm": "~1.4.0"
+    "node": ">=0.10.0",
+    "npm": ">=1.4.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",
