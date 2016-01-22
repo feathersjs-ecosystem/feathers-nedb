@@ -19,11 +19,22 @@ npm install feathers-nedb --save
 Creating an NeDB service is this simple:
 
 ```js
+var NeDB = require('nedb');
 var service = require('feathers-nedb');
-var nedb = require('nedb');
+var service = require('nedb');
 
+var db = new NeDB({
+  filename: './data/todos.db',
+  autoload: true
+});
 
-app.use('todos', nedb('todos', options));
+app.use('todos', service({
+  Model: db,
+  paginate: {
+    default: 2,
+    max: 4
+  }
+}));
 ```
 
 This will create a `todos` datastore file in the `db-data` directory and automatically load it. If you delete that file, the data will be deleted.
@@ -181,7 +192,6 @@ app.use('/todos', myService);
 The following options can be passed when creating a new NeDB service:
 
 - `db` - The NeDB database instance
-- `id` (default: `_id`) [optional] - The name of the id property
 - `paginate` [optional] - A pagination object containing a `default` and `max` page size (see below)
 
 
