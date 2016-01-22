@@ -37,7 +37,7 @@
     "watch": "babel --watch -d lib/ src/",
     "jshint": "jshint src/. test/. --config",
     "mocha": "mocha test/ --compilers js:babel-core/register",
-    "test": "rm -rf db-data && npm run compile && npm run jshint && npm run mocha"
+    "test": "rm -rf db-data && npm run compile && npm run jshint && npm run mocha && nsp check"
   },
   "engines": {
     "node": ">=0.10.0",
@@ -61,6 +61,7 @@
     "feathers-service-tests": "^0.5.3",
     "jshint": "^2.8.0",
     "mocha": "^2.2.5",
-    "nedb": "^1.5.1"
+    "nedb": "^1.5.1",
+    "nsp": "^2.2.0"
   }
 }
