@@ -17,7 +17,7 @@ class Service {
 		}
 
 		this.Model = options.Model;
-		this.id = options.id || '_id';
+		this.id = '_id';
 		this.paginate = options.paginate || {};
 	}
 
