@@ -1,4 +1,7 @@
 .babelrc
+.codeclimate.yml
+.jshintrc
+.travis.yml
 .idea/
 src/
 test/

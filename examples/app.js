@@ -1,9 +1,10 @@
-// server.js
-var NeDB = require('nedb');
-var feathers = require('feathers');
-var bodyParser = require('body-parser');
-var service = require('../lib');
-var db = new NeDB({
+import NeDB from 'nedb';
+import feathers from 'feathers';
+import rest from 'feathers-rest';
+import bodyParser from 'body-parser';
+import service from '../lib';
+
+const db = new NeDB({
   filename: './db-data/todos',
   autoload: true
 });
@@ -11,9 +12,9 @@ var db = new NeDB({
 // NeDB ids do not seem to be generated sequentially but sorted lexigraphically
 // if no other sort order is given. This means that items can not be returned in the
 // same order they have been created so this counter is used for sorting instead.
-var counter = 0;
+let counter = 0;
 
-var todoService = service({
+const todoService = service({
   Model: db,
   paginate: {
     default: 2,
@@ -39,10 +40,8 @@ var todoService = service({
 var app = feathers()
   // Setup the public folder.
   .use(feathers.static(__dirname + '/public'))
-  // Enable Socket.io
-  .configure(feathers.socketio())
   // Enable REST services
-  .configure(feathers.rest())
+  .configure(rest())
   // Turn on JSON parser for REST services
   .use(bodyParser.json())
   // Turn on URL-encoded parser for REST services
