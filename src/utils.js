@@ -1,5 +1,3 @@
-import errors from 'feathers-errors';
-
 export function multiOptions(id, params) {
   let query = Object.assign({}, params.query);
   let options = Object.assign({ multi: true }, params.options);
@@ -10,16 +8,6 @@ export function multiOptions(id, params) {
   }
 
   return { query, options };
-}
-
-export function mapItems(id) {
-  return function(items) {
-    if(!items.length) {
-      throw new errors.NotFound(`No record found for id '${id}'`);
-    }
-
-    return items.length === 1 ? items[0] : items;
-  };
 }
 
 export function getSelect(select) {

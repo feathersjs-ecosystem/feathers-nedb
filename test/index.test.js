@@ -20,13 +20,13 @@ let counter = 0;
 const filename = path.join('db-data', 'people');
 const db = new NeDB({ filename, autoload: true });
 const nedbService = service({ Model: db }).extend({
-  find(params) {
+  _find(params) {
     params.query = params.query || {};
     if(!params.query.$sort) {
       params.query.$sort = { counter: 1 };
     }
 
-    return this._super(params);
+    return this._super.apply(this, arguments);
   },
 
   create(data, params) {
