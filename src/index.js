@@ -3,7 +3,7 @@ if(!global._babelPolyfill) { require('babel-polyfill'); }
 import Proto from 'uberproto';
 import filter from 'feathers-query-filters';
 import errors from 'feathers-errors';
-import { nfcall, getSelect, multiOptions, mapItems } from './utils';
+import { nfcall, getSelect, multiOptions } from './utils';
 
 // Create the service.
 class Service {
@@ -25,12 +25,10 @@ class Service {
 		return Proto.extend(obj, this);
 	}
 
-	find(params) {
-		params.query = params.query || {};
-
+	_find(params, count, getFilter = filter) {
 		// Start with finding all, and limit when necessary.
 		let query = this.Model.find(params.query);
-		let filters = filter(params.query, this.paginate);
+		let filters = getFilter(params.query|| {});
 
 		// $select uses a specific find syntax, so it has to come first.
 		if (filters.$select) {
@@ -52,24 +50,36 @@ class Service {
 			query.skip(filters.$skip);
 		}
 
-		if(this.paginate.default && params.paginate !== false) {
-			return nfcall(this.Model, 'count', params.query).then(total => {
-				return nfcall(query, 'exec').then(data => {
-					return {
-						total,
-						limit: filters.$limit,
-						skip: filters.$skip || 0,
-						data
-					};
-				});
+		const runQuery = total => {
+			return nfcall(query, 'exec').then(data => {
+				return {
+					total,
+					limit: filters.$limit,
+					skip: filters.$skip || 0,
+					data
+				};
 			});
+		};
+		
+		if(count) {
+			return nfcall(this.Model, 'count', params.query).then(runQuery);
 		}
-
-		// Execute the query
-		return nfcall(query, 'exec');
+		
+		return runQuery();
+	}
+	
+	find(params) {
+		const paginate = !!this.paginate.default;
+		const result = this._find(params, paginate, query => filter(query, this.paginate));
+		
+		if(!paginate) {
+			return result.then(page => page.data);
+		}
+		
+		return result;
 	}
 
-	get(_id) {
+	_get(_id) {
 		return nfcall(this.Model, 'findOne', { _id }).then(doc => {
 			if(!doc) {
 				throw new errors.NotFound(`No record found for id '${_id}'`);
@@ -77,6 +87,18 @@ class Service {
 
 			return doc;
 		});
+	}
+	
+	get(id, params) {
+		return this._get(id, params);
+	}
+	
+	_findOrGet(id, params) {
+		if(id === null) {
+			return this._find(params).then(page => page.data);
+		}
+		
+		return this._get(id, params);
 	}
 
 	create(data) {
@@ -91,7 +113,7 @@ class Service {
 
 		// Run the query
 		return nfcall(this.Model, 'update', query, { $set: data }, options)
-			.then(() => this.find({ query, paginate: false }).then(mapItems(id)));
+			.then(() => this._findOrGet(id, params));
 	}
 
 	update(id, data, params) {
@@ -105,16 +127,15 @@ class Service {
 		delete data[this.id];
 
 		return nfcall(this.Model, 'update', query, data, options)
-			.then(() => this.get(id));
+			.then(() => this._findOrGet(id));
 	}
 
 	remove(id, params) {
 		let { query, options } = multiOptions(id, params);
 
-		return this.find({ query, paginate: false }).then(items =>
+		return this._findOrGet(id, params).then(items =>
 			nfcall(this.Model, 'remove', query, options)
-				.then(() => mapItems(id)(items)
-			)
+				.then(() => items)
 		);
 	}
 }

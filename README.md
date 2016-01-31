@@ -1,5 +1,4 @@
-feathers-nedb
-================
+# feathers-nedb
 
 [![Build Status](https://travis-ci.org/feathersjs/feathers-nedb.png?branch=master)](https://travis-ci.org/feathersjs/feathers-nedb)
 [![Code Climate](https://codeclimate.com/github/feathersjs/feathers-nedb.png)](https://codeclimate.com/github/feathersjs/feathers-nedb)
@@ -67,6 +66,10 @@ app.listen(port, function() {
 You can run this example by using `node examples/app` and going to [localhost:3030/todos](http://localhost:3030/todos). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new todos service.
 
 ## Changelog
+
+__2.1.0__
+
+- Use internal methods instead of service methods directly
 
 __2.0.0__
 
