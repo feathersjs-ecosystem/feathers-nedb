@@ -17,7 +17,7 @@ class Service {
 		}
 
 		this.Model = options.Model;
-		this.id = '_id';
+		this.id = options.id || '_id';
 		this.paginate = options.paginate || {};
 	}
 
@@ -79,10 +79,10 @@ class Service {
 		return result;
 	}
 
-	_get(_id) {
-		return nfcall(this.Model, 'findOne', { _id }).then(doc => {
+	_get(id) {
+		return nfcall(this.Model, 'findOne', { [this.id]: id }).then(doc => {
 			if(!doc) {
-				throw new errors.NotFound(`No record found for id '${_id}'`);
+				throw new errors.NotFound(`No record found for id '${id}'`);
 			}
 
 			return doc;
