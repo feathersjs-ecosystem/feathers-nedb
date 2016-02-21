@@ -11,27 +11,27 @@ export function multiOptions(id, params) {
 }
 
 export function getSelect(select) {
-	if(Array.isArray(select)) {
-		var result = {};
-		select.forEach(name => result[name] = 1);
-		return result;
-	}
+  if(Array.isArray(select)) {
+    var result = {};
+    select.forEach(name => result[name] = 1);
+    return result;
+  }
 
-	return select;
+  return select;
 }
 
 export function nfcall(ctx, method) {
-	let args = Array.prototype.slice.call(arguments, 2);
+  let args = Array.prototype.slice.call(arguments, 2);
 
-	return new Promise((resolve, reject) => {
-		args.push(function(error, data) {
-			if(error) {
-				return reject(error);
-			}
+  return new Promise((resolve, reject) => {
+    args.push(function(error, data) {
+      if(error) {
+        return reject(error);
+      }
 
-			resolve(data);
-		});
+      resolve(data);
+    });
 
-		ctx[method].apply(ctx, args);
-	});
+    ctx[method].apply(ctx, args);
+  });
 }
