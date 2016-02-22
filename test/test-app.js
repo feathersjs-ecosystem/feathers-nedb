@@ -1,8 +1,11 @@
-import NeDB from 'nedb';
-import feathers from 'feathers';
-import rest from 'feathers-rest';
-import bodyParser from 'body-parser';
-import service from '../lib';
+const NeDB = require('nedb');
+const feathers = require('feathers');
+const rest = require('feathers-rest');
+const socketio = require('feathers-socketio');
+const bodyParser = require('body-parser');
+const service = require('../lib');
+
+// Connect to the db, create and register a Feathers service.
 
 const db = new NeDB({
   filename: './db-data/todos',
@@ -38,22 +41,18 @@ const todoService = service({
 
 // Create a feathers instance.
 var app = feathers()
-  // Setup the public folder.
-  .use(feathers.static(__dirname + '/public'))
   // Enable REST services
   .configure(rest())
+  // Enable Socket.io services
+  .configure(socketio())
   // Turn on JSON parser for REST services
   .use(bodyParser.json())
   // Turn on URL-encoded parser for REST services
   .use(bodyParser.urlencoded({extended: true}))
   .use('/todos', todoService);
 
-// A basic error handler, just like Express
-app.use(function(error, req, res, next){
-  res.json(error);
-});
 
-// Start the server
-module.exports = app.listen(3030);
+// Start the server.
+const port = 3030;
 
-console.log('Feathers Todo NeDB service running on 127.0.0.1:3030');
+module.exports = app.listen(port);

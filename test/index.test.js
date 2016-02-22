@@ -9,7 +9,7 @@ import NeDB from 'nedb';
 import { base, example } from 'feathers-service-tests';
 import errors from 'feathers-errors';
 
-import server from '../examples/app';
+import server from './test-app';
 import service from '../src';
 
 // NeDB ids do not seem to be generated sequentially but sorted lexigraphically
