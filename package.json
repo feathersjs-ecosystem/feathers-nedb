@@ -38,7 +38,7 @@
     "jshint": "jshint src/. test/. --config",
     "mocha": "mocha test/ --compilers js:babel-core/register",
     "test": "rm -rf db-data && npm run compile && npm run jshint && npm run mocha && nsp check",
-    "example": "babel-node examples/app"
+    "start": "node example/app"
   },
   "engines": {
     "node": ">=0.10.0",
@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",
-    "feathers-errors": "^1.1.5",
+    "feathers-errors": "^1.2.3",
     "feathers-query-filters": "^1.5.1",
     "uberproto": "^1.2.0"
   },
@@ -61,6 +61,7 @@
     "feathers": "^2.0.0-pre.4",
     "feathers-rest": "^1.1.1",
     "feathers-service-tests": "^0.5.3",
+    "feathers-socketio": "^1.3.3",
     "jshint": "^2.8.0",
     "mocha": "^2.2.5",
     "nedb": "^1.5.1",
