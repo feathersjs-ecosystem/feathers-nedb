@@ -25,7 +25,7 @@ Please refer to the [Feathers database adapter documentation](http://docs.feathe
 
 ## Complete Example
 
-Here's an example of a Feathers server with a `todos` nedb-service.
+Here's an example of a Feathers server with a `messages` nedb-service.
 
 ```js
 import NeDB from 'nedb';
@@ -34,7 +34,7 @@ import bodyParser from 'body-parser';
 import service from '../lib';
 
 const db = new NeDB({
-  filename: './db-data/todos',
+  filename: './db-data/messages',
   autoload: true
 });
 
@@ -48,7 +48,7 @@ var app = feathers()
   .use(bodyParser.urlencoded({extended: true}));
 
 // Connect to the db, create and register a Feathers service.
-app.use('todos', service({
+app.use('messages', service({
   Model: db,
   paginate: {
     default: 2,
@@ -63,7 +63,7 @@ app.listen(port, function() {
 });
 ```
 
-You can run this example by using `node examples/app` and going to [localhost:3030/todos](http://localhost:3030/todos). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new todos service.
+You can run this example by using `node examples/app` and going to [localhost:3030/messages](http://localhost:3030/messages). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new messages service.
 
 ## Changelog
 
