@@ -1,10 +1,10 @@
-export function multiOptions(id, params) {
+export function multiOptions(id, idField, params) {
   let query = Object.assign({}, params.query);
   let options = Object.assign({ multi: true }, params.options);
 
   if(id !== null) {
     options.multi = false;
-    query._id = id;
+    query[idField] = id;
   }
 
   return { query, options };
