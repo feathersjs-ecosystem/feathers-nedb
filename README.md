@@ -63,7 +63,7 @@ app.listen(port, function() {
 });
 ```
 
-You can run this example by using `node examples/app` and going to [localhost:3030/messages](http://localhost:3030/messages). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new messages service.
+You can run this example by using `node example/app` and going to [localhost:3030/messages](http://localhost:3030/messages). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new messages service.
 
 ## Changelog
 
