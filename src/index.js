@@ -106,7 +106,7 @@ class Service {
   }
 
   patch(id, data, params) {
-    let { query, options } = multiOptions(id, params);
+    let { query, options } = multiOptions(id, this.id, params);
 
     // We can not update the id
     delete data[this.id];
@@ -121,7 +121,7 @@ class Service {
       return Promise.reject('Not replacing multiple records. Did you mean `patch`?');
     }
 
-    let { query, options } = multiOptions(id, params);
+    let { query, options } = multiOptions(id, this.id, params);
 
     // We can not update the id
     delete data[this.id];
@@ -131,7 +131,7 @@ class Service {
   }
 
   remove(id, params) {
-    let { query, options } = multiOptions(id, params);
+    let { query, options } = multiOptions(id, this.id, params);
 
     return this._findOrGet(id, params).then(items =>
       nfcall(this.Model, 'remove', query, options)
