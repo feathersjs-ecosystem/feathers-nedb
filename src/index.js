@@ -110,6 +110,7 @@ class Service {
 
     // We can not update the id
     delete data[this.id];
+    delete data._id;
 
     // Run the query
     return nfcall(this.Model, 'update', query, { $set: data }, options)
@@ -124,7 +125,8 @@ class Service {
     let { query, options } = multiOptions(id, this.id, params);
 
     // We can not update the id
-    delete data[this.id];
+    data[this.id] = id;
+    delete data._id;
 
     return nfcall(this.Model, 'update', query, data, options)
       .then(() => this._findOrGet(id));
