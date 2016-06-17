@@ -65,38 +65,10 @@ app.listen(port, function() {
 
 You can run this example by using `node example/app` and going to [localhost:3030/messages](http://localhost:3030/messages). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new messages service.
 
-## Changelog
-
-__2.1.0__
-
-- Use internal methods instead of service methods directly
-
-__2.0.0__
-
-- Remove NeDB dependency
-- Migration to ES6 and latest service test suite
-- Changing the way that NeDB services are initialized to be compliant with Feathers 2.0.
-
-__1.2.0__
-
-- Migration to shared service test suite ([#4](https://github.com/feathersjs/feathers-nedb/pull/4))
-
-__1.0.0__
-
-- First final release
-
-__0.1.1__
-
-- Minor license and documentation updates
-
-__0.1.0__
-
-- Initial release.
-
 
 ## License
 
-Copyright (c) 2015
+Copyright (c) 2016
 
 Licensed under the [MIT license](LICENSE).
 
