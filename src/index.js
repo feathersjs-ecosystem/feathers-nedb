@@ -1,5 +1,4 @@
-if(!global._babelPolyfill) { require('babel-polyfill'); }
-
+import omit from 'lodash.omit';
 import Proto from 'uberproto';
 import filter from 'feathers-query-filters';
 import errors from 'feathers-errors';
@@ -110,13 +109,10 @@ class Service {
   patch(id, data, params) {
     let { query, options } = multiOptions(id, this.id, params);
 
-    // We can not update the id
-    delete data[this.id];
-    delete data._id;
-
     // Run the query
-    return nfcall(this.Model, 'update', query, { $set: data }, options)
-      .then(() => this._findOrGet(id, params));
+    return nfcall(this.Model, 'update', query, {
+      $set: omit(data, this.id, '_id')
+    }, options).then(() => this._findOrGet(id, params));
   }
 
   update(id, data, params) {
@@ -125,12 +121,8 @@ class Service {
     }
 
     let { query, options } = multiOptions(id, this.id, params);
-
-    // We can not update the id
-    data[this.id] = id;
-    delete data._id;
-
-    return nfcall(this.Model, 'update', query, data, options)
+    
+    return nfcall(this.Model, 'update', query, omit(data, this.id, '_id'), options)
       .then(() => this._findOrGet(id));
   }
 

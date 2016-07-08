@@ -45,9 +45,9 @@
     "npm": ">=1.4.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.7.4",
     "feathers-errors": "^2.0.1",
     "feathers-query-filters": "^1.5.1",
+    "lodash.omit": "^4.3.0",
     "uberproto": "^1.2.0"
   },
   "devDependencies": {
@@ -60,7 +60,7 @@
     "chai": "^3.0.0",
     "feathers": "^2.0.0-pre.4",
     "feathers-rest": "^1.3.0",
-    "feathers-service-tests": "^0.6.0",
+    "feathers-service-tests": "^0.6.1",
     "feathers-socketio": "^1.3.3",
     "jshint": "^2.8.0",
     "mocha": "^2.5.0",
