@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.4.0](https://github.com/feathersjs/feathers-nedb/tree/v2.4.0) (2016-07-08)
+[Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.3.0...v2.4.0)
+
+**Closed issues:**
+
+- Update and patch manipulate data object [\#29](https://github.com/feathersjs/feathers-nedb/issues/29)
+
+**Merged pull requests:**
+
+- feathers-service-tests@0.6.1 breaks build 🚨 [\#30](https://github.com/feathersjs/feathers-nedb/pull/30) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
 ## [v2.3.0](https://github.com/feathersjs/feathers-nedb/tree/v2.3.0) (2016-06-17)
 [Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.2.3...v2.3.0)
 
