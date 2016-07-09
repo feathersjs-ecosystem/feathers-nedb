@@ -30,8 +30,7 @@ const nedbService = service({ Model: db }).extend({
   },
 
   create(data, params) {
-    data.counter = ++counter;
-    return this._super(data, params);
+    return this._super(Object.assign({}, data, { counter: ++counter }), params);
   }
 });
 const app = feathers().use('/people', nedbService);
