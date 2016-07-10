@@ -26,31 +26,32 @@ class Service {
 
   _find(params, count, getFilter = filter) {
     // Start with finding all, and limit when necessary.
-    let query = this.Model.find(params.query);
-    let filters = getFilter(params.query|| {});
+    let { filters, query } = getFilter(params.query || {});
+
+    let q = this.Model.find(query);
 
     // $select uses a specific find syntax, so it has to come first.
     if (filters.$select) {
-      query = this.Model.find(params.query, getSelect(filters.$select));
+      q = this.Model.find(query, getSelect(filters.$select));
     }
 
     // Handle $sort
     if (filters.$sort){
-      query.sort(filters.$sort);
+      q.sort(filters.$sort);
     }
 
     // Handle $limit
     if (filters.$limit){
-      query.limit(filters.$limit);
+      q.limit(filters.$limit);
     }
 
     // Handle $skip
     if (filters.$skip){
-      query.skip(filters.$skip);
+      q.skip(filters.$skip);
     }
 
     const runQuery = total => {
-      return nfcall(query, 'exec').then(data => {
+      return nfcall(q, 'exec').then(data => {
         return {
           total,
           limit: filters.$limit,
@@ -61,7 +62,7 @@ class Service {
     };
     
     if(count) {
-      return nfcall(this.Model, 'count', params.query).then(runQuery);
+      return nfcall(this.Model, 'count', query).then(runQuery);
     }
     
     return runQuery();
