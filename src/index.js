@@ -2,6 +2,7 @@ import omit from 'lodash.omit';
 import Proto from 'uberproto';
 import filter from 'feathers-query-filters';
 import errors from 'feathers-errors';
+import crypto from 'crypto';
 import { nfcall, getSelect, multiOptions } from './utils';
 
 // Create the service.
@@ -16,6 +17,7 @@ class Service {
     }
 
     this.Model = options.Model;
+    this.events = options.events || [];
     this.id = options.id || '_id';
     this.paginate = options.paginate || {};
   }
@@ -104,6 +106,10 @@ class Service {
   }
 
   create(data) {
+    if(this.id !== '_id' && typeof data[this.id] === 'undefined') {
+      data[this.id] = crypto.randomBytes(8).toString('hex');
+    }
+
     return nfcall(this.Model, 'insert', data);
   }
 
@@ -121,9 +127,14 @@ class Service {
       return Promise.reject('Not replacing multiple records. Did you mean `patch`?');
     }
 
-    let { query, options } = multiOptions(id, this.id, params);
+    const { query, options } = multiOptions(id, this.id, params);
+    const entry = omit(data, '_id');
+
+    if(this.id !== '_id') {
+      entry[this.id] = id;
+    }
     
-    return nfcall(this.Model, 'update', query, omit(data, this.id, '_id'), options)
+    return nfcall(this.Model, 'update', query, entry, options)
       .then(() => this._findOrGet(id));
   }
 
