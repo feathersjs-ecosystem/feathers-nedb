@@ -1,5 +1,18 @@
 # Change Log
 
+## [v2.5.0](https://github.com/feathersjs/feathers-nedb/tree/v2.5.0) (2016-09-12)
+[Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.4.1...v2.5.0)
+
+**Closed issues:**
+
+- Patch duplicates records [\#35](https://github.com/feathersjs/feathers-nedb/issues/35)
+
+**Merged pull requests:**
+
+- chore\(package\): update mocha to version 3.0.1 [\#38](https://github.com/feathersjs/feathers-nedb/pull/38) ([daffl](https://github.com/daffl))
+- Update service tests, id and events option [\#37](https://github.com/feathersjs/feathers-nedb/pull/37) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update mocha to version 3.0.0 🚀 [\#34](https://github.com/feathersjs/feathers-nedb/pull/34) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
 ## [v2.4.1](https://github.com/feathersjs/feathers-nedb/tree/v2.4.1) (2016-07-21)
 [Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.4.0...v2.4.1)
 
