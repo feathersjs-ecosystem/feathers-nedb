@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.5.1](https://github.com/feathersjs/feathers-nedb/tree/v2.5.1) (2016-09-21)
+[Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.5.0...v2.5.1)
+
+**Closed issues:**
+
+- patch\(\) method doesn't call 'patched' event handler. [\#39](https://github.com/feathersjs/feathers-nedb/issues/39)
+
+**Merged pull requests:**
+
+- Patch and create multiple [\#40](https://github.com/feathersjs/feathers-nedb/pull/40) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
 ## [v2.5.0](https://github.com/feathersjs/feathers-nedb/tree/v2.5.0) (2016-09-12)
 [Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.4.1...v2.5.0)
 
