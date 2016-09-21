@@ -30,8 +30,11 @@ function createService(name, options) {
       return this._super.apply(this, arguments);
     },
 
-    create(data, params) {
-      return this._super(Object.assign({}, data, { counter: ++counter }), params);
+    create(raw, params) {
+      const convert = item => Object.assign({}, item, { counter: ++counter });
+      const items = Array.isArray(raw) ? raw.map(convert) : convert(raw);
+
+      return this._super(items, params);
     }
   });
 }

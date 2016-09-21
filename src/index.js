@@ -105,21 +105,43 @@ class Service {
     return this._get(id, params);
   }
 
-  create(data) {
-    if(this.id !== '_id' && typeof data[this.id] === 'undefined') {
-      data[this.id] = crypto.randomBytes(8).toString('hex');
-    }
+  create(raw) {
+    const addId  = item => {
+      if(this.id !== '_id' && item[this.id] === undefined) {
+        return Object.assign({
+          [this.id]: crypto.randomBytes(8).toString('hex')
+        }, item);
+      }
 
+      return item;
+    };
+    const data = Array.isArray(raw) ? raw.map(addId) : addId(raw);
+    
     return nfcall(this.Model, 'insert', data);
   }
 
   patch(id, data, params) {
-    let { query, options } = multiOptions(id, this.id, params);
+    const { query, options } = multiOptions(id, this.id, params);
+    const patchQuery = {};
+
+    // Account for potentially modified data
+    Object.keys(query).forEach(key => {
+      if(query[key] !== undefined && data[key] !== undefined &&
+          typeof data[key] !== 'object') {
+        patchQuery[key] = data[key];
+      } else {
+        patchQuery[key] = query[key];
+      }
+    });
+
+    const patchParams = Object.assign({}, params, {
+      query: patchQuery
+    });
 
     // Run the query
     return nfcall(this.Model, 'update', query, {
       $set: omit(data, this.id, '_id')
-    }, options).then(() => this._findOrGet(id, params));
+    }, options).then(() => this._findOrGet(id, patchParams));
   }
 
   update(id, data, params) {
