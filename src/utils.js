@@ -1,6 +1,6 @@
 export function multiOptions(id, idField, params) {
   let query = Object.assign({}, params.query);
-  let options = Object.assign({ multi: true }, params.options);
+  let options = Object.assign({ multi: true }, params.nedb || params.options);
 
   if(id !== null) {
     options.multi = false;
