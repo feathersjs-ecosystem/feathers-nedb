@@ -1,7 +1,11 @@
 # feathers-nedb
 
 [![Build Status](https://travis-ci.org/feathersjs/feathers-nedb.png?branch=master)](https://travis-ci.org/feathersjs/feathers-nedb)
-[![Code Climate](https://codeclimate.com/github/feathersjs/feathers-nedb.png)](https://codeclimate.com/github/feathersjs/feathers-nedb)
+[![Code Climate](https://codeclimate.com/github/feathersjs/feathers-nedb/badges/gpa.svg)](https://codeclimate.com/github/feathersjs/feathers-nedb)
+[![Test Coverage](https://codeclimate.com/github/feathersjs/feathers-nedb/badges/coverage.svg)](https://codeclimate.com/github/feathersjs/feathers-nedb/coverage)
+[![Dependency Status](https://img.shields.io/david/feathersjs/feathers-nedb.svg?style=flat-square)](https://david-dm.org/feathersjs/feathers-nedb)
+[![Download Status](https://img.shields.io/npm/dm/feathers-nedb.svg?style=flat-square)](https://www.npmjs.com/package/feathers-nedb)
+
 
 > Create an [NeDB](https://github.com/louischatriot/nedb) Service for [FeatherJS](https://github.com/feathersjs).
 
