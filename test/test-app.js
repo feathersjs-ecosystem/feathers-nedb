@@ -24,16 +24,16 @@ const todoService = service({
     max: 4
   }
 }).extend({
-  find(params) {
+  find (params) {
     params.query = params.query || {};
-    if(!params.query.$sort) {
+    if (!params.query.$sort) {
       params.query.$sort = { counter: 1 };
     }
 
     return this._super(params);
   },
 
-  create(data, params) {
+  create (data, params) {
     data.counter = ++counter;
     return this._super(data, params);
   }
@@ -50,7 +50,6 @@ var app = feathers()
   // Turn on URL-encoded parser for REST services
   .use(bodyParser.urlencoded({extended: true}))
   .use('/todos', todoService);
-
 
 // Start the server.
 const port = 3030;

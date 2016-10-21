@@ -34,7 +34,7 @@ app.use('/messages', service({
 // Create a dummy Message
 app.service('messages').create({
   text: 'Oh hai!'
-}).then(function(message) {
+}).then(function (message) {
   console.log('Created message', message);
 });
 
@@ -43,6 +43,6 @@ app.use(errors.handler());
 // Start the server.
 const port = 3030;
 
-app.listen(port, function() {
+app.listen(port, function () {
   console.log(`Feathers server listening on port ${port}`);
 });

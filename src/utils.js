@@ -1,8 +1,8 @@
-export function multiOptions(id, idField, params) {
+export function multiOptions (id, idField, params) {
   let query = Object.assign({}, params.query);
   let options = Object.assign({ multi: true }, params.nedb || params.options);
 
-  if(id !== null) {
+  if (id !== null) {
     options.multi = false;
     query[idField] = id;
   }
@@ -10,22 +10,22 @@ export function multiOptions(id, idField, params) {
   return { query, options };
 }
 
-export function getSelect(select) {
-  if(Array.isArray(select)) {
+export function getSelect (select) {
+  if (Array.isArray(select)) {
     var result = {};
-    select.forEach(name => result[name] = 1);
+    select.forEach(name => (result[name] = 1));
     return result;
   }
 
   return select;
 }
 
-export function nfcall(ctx, method) {
+export function nfcall (ctx, method) {
   let args = Array.prototype.slice.call(arguments, 2);
 
   return new Promise((resolve, reject) => {
-    args.push(function(error, data) {
-      if(error) {
+    args.push(function (error, data) {
+      if (error) {
         return reject(error);
       }
 

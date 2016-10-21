@@ -1,5 +1,3 @@
-/*jshint expr: true*/
-
 import { expect } from 'chai';
 import path from 'path';
 import assert from 'assert';
@@ -11,7 +9,7 @@ import errors from 'feathers-errors';
 import server from './test-app';
 import service from '../src';
 
-function createService(name, options) {
+function createService (name, options) {
   // NeDB ids do not seem to be generated sequentially but sorted lexigraphically
   // if no other sort order is given. This means that items can not be returned in the
   // same order they have been created so this counter is used for sorting instead.
@@ -19,18 +17,18 @@ function createService(name, options) {
 
   const filename = path.join('db-data', name);
   const db = new NeDB({ filename, autoload: true });
-  
+
   return service(Object.assign({ Model: db }, options)).extend({
-    _find(params) {
+    _find (params) {
       params.query = params.query || {};
-      if(!params.query.$sort) {
+      if (!params.query.$sort) {
         params.query.$sort = { counter: 1 };
       }
 
       return this._super.apply(this, arguments);
     },
 
-    create(raw, params) {
+    create (raw, params) {
       const convert = item => Object.assign({}, item, { counter: ++counter });
       const items = Array.isArray(raw) ? raw.map(convert) : convert(raw);
 
@@ -39,7 +37,7 @@ function createService(name, options) {
   });
 }
 
-describe('NeDB Service', function() {
+describe('NeDB Service', function () {
   const app = feathers()
     .use('/people', createService('people', {
       events: [ 'testing' ]
@@ -61,7 +59,7 @@ describe('NeDB Service', function() {
   });
 
   describe('Common functionality', () => {
-    it('is CommonJS compatible', () => 
+    it('is CommonJS compatible', () =>
       assert.ok(typeof require('../lib') === 'function')
     );
 
