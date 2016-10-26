@@ -6,3 +6,6 @@ src/
 test/
 !lib/
 .github/
+coverage
+.editorconfig
+.istanbul.yml
