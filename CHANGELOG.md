@@ -1,5 +1,21 @@
 # Change Log
 
+## [v2.6.0](https://github.com/feathersjs/feathers-nedb/tree/v2.6.0) (2016-11-12)
+[Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.5.1...v2.6.0)
+
+**Closed issues:**
+
+- Support $select for gets [\#44](https://github.com/feathersjs/feathers-nedb/issues/44)
+
+**Merged pull requests:**
+
+- Update feathers-service-tests to version 0.9.0 🚀 [\#52](https://github.com/feathersjs/feathers-nedb/pull/52) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- babel-preset-es2015@6.18.0 breaks build ⚠️ [\#51](https://github.com/feathersjs/feathers-nedb/pull/51) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- jshint —\> semistandard [\#48](https://github.com/feathersjs/feathers-nedb/pull/48) ([corymsmith](https://github.com/corymsmith))
+- jshint@2.9.4 breaks build 🚨 [\#47](https://github.com/feathersjs/feathers-nedb/pull/47) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update code coverage settings [\#46](https://github.com/feathersjs/feathers-nedb/pull/46) ([daffl](https://github.com/daffl))
+- adding code coverage reporting [\#45](https://github.com/feathersjs/feathers-nedb/pull/45) ([ekryski](https://github.com/ekryski))
+
 ## [v2.5.1](https://github.com/feathersjs/feathers-nedb/tree/v2.5.1) (2016-09-21)
 [Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.5.0...v2.5.1)
 
