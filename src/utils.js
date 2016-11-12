@@ -1,5 +1,7 @@
+import filter from 'feathers-query-filters';
+
 export function multiOptions (id, idField, params) {
-  let query = Object.assign({}, params.query);
+  let query = filter(params.query || {}).query;
   let options = Object.assign({ multi: true }, params.nedb || params.options);
 
   if (id !== null) {
