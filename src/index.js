@@ -2,6 +2,7 @@ import omit from 'lodash.omit';
 import Proto from 'uberproto';
 import filter from 'feathers-query-filters';
 import errors from 'feathers-errors';
+import { select } from 'feathers-commons';
 import crypto from 'crypto';
 import { nfcall, getSelect, multiOptions } from './utils';
 
@@ -52,7 +53,7 @@ class Service {
       q.skip(filters.$skip);
     }
 
-    const runQuery = total => {
+    let runQuery = total => {
       return nfcall(q, 'exec').then(data => {
         return {
           total,
@@ -62,6 +63,17 @@ class Service {
         };
       });
     };
+
+    if (filters.$limit === 0) {
+      runQuery = total => {
+        return Promise.resolve({
+          total,
+          limit: filters.$limit,
+          skip: filters.$skip || 0,
+          data: []
+        });
+      };
+    }
 
     if (count) {
       return nfcall(this.Model, 'count', query).then(runQuery);
@@ -82,14 +94,16 @@ class Service {
     return result;
   }
 
-  _get (id) {
-    return nfcall(this.Model, 'findOne', { [this.id]: id }).then(doc => {
-      if (!doc) {
-        throw new errors.NotFound(`No record found for id '${id}'`);
-      }
+  _get (id, params) {
+    return nfcall(this.Model, 'findOne', { [this.id]: id })
+      .then(doc => {
+        if (!doc) {
+          throw new errors.NotFound(`No record found for id '${id}'`);
+        }
 
-      return doc;
-    });
+        return doc;
+      })
+      .then(select(params, this.id));
   }
 
   get (id, params) {
@@ -104,7 +118,7 @@ class Service {
     return this._get(id, params);
   }
 
-  create (raw) {
+  create (raw, params) {
     const addId = item => {
       if (this.id !== '_id' && item[this.id] === undefined) {
         return Object.assign({
@@ -116,31 +130,37 @@ class Service {
     };
     const data = Array.isArray(raw) ? raw.map(addId) : addId(raw);
 
-    return nfcall(this.Model, 'insert', data);
+    return nfcall(this.Model, 'insert', data)
+      .then(select(params, this.id));
   }
 
   patch (id, data, params) {
     const { query, options } = multiOptions(id, this.id, params);
-    const patchQuery = {};
+    const mapIds = page => page.data.map(current => current[this.id]);
 
-    // Account for potentially modified data
-    Object.keys(query).forEach(key => {
-      if (query[key] !== undefined && data[key] !== undefined &&
-          typeof data[key] !== 'object') {
-        patchQuery[key] = data[key];
-      } else {
-        patchQuery[key] = query[key];
-      }
-    });
-
-    const patchParams = Object.assign({}, params, {
-      query: patchQuery
-    });
+    // By default we will just query for the one id. For multi patch
+    // we create a list of the ids of all items that will be changed
+    // to re-query them after the update
+    const ids = id === null ? this._find(params)
+        .then(mapIds) : Promise.resolve([ id ]);
 
     // Run the query
-    return nfcall(this.Model, 'update', query, {
-      $set: omit(data, this.id, '_id')
-    }, options).then(() => this._findOrGet(id, patchParams));
+    return ids
+      .then(idList => {
+        // Create a new query that re-queries all ids that
+        // were originally changed
+        const findParams = Object.assign({}, params, {
+          query: {
+            [this.id]: { $in: idList }
+          }
+        });
+
+        return nfcall(this.Model, 'update', query, {
+          $set: omit(data, this.id, '_id')
+        }, options)
+        .then(() => this._findOrGet(id, findParams));
+      })
+      .then(select(params, this.id));
   }
 
   update (id, data, params) {
@@ -156,16 +176,17 @@ class Service {
     }
 
     return nfcall(this.Model, 'update', query, entry, options)
-      .then(() => this._findOrGet(id));
+      .then(() => this._findOrGet(id))
+      .then(select(params, this.id));
   }
 
   remove (id, params) {
-    let { query, options } = multiOptions(id, this.id, params);
+    const { query, options } = multiOptions(id, this.id, params);
 
     return this._findOrGet(id, params).then(items =>
       nfcall(this.Model, 'remove', query, options)
         .then(() => items)
-    );
+    ).then(select(params, this.id));
   }
 }
 

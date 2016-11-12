@@ -55,6 +55,7 @@
     "npm": ">=1.4.0"
   },
   "dependencies": {
+    "feathers-commons": "^0.8.1",
     "feathers-errors": "^2.0.1",
     "feathers-query-filters": "^2.0.0",
     "lodash.omit": "^4.3.0",
