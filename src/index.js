@@ -135,7 +135,7 @@ class Service {
   }
 
   patch (id, data, params) {
-    const { query, options } = multiOptions(id, this.id, params);
+    const { query, options, modifier } = multiOptions(id, this.id, params);
     const mapIds = page => page.data.map(current => current[this.id]);
 
     // By default we will just query for the one id. For multi patch
@@ -155,9 +155,9 @@ class Service {
           }
         });
 
-        return nfcall(this.Model, 'update', query, {
-          $set: omit(data, this.id, '_id')
-        }, options)
+        const entry = modifier ? omit(data, this.id, '_id') : { $set: omit(data, this.id, '_id') };
+
+        return nfcall(this.Model, 'update', query, entry, options)
         .then(() => this._findOrGet(id, findParams));
       })
       .then(select(params, this.id));
