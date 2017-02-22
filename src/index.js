@@ -171,9 +171,7 @@ class Service {
     const { query, options } = multiOptions(id, this.id, params);
     const entry = omit(data, '_id');
 
-    if (this.id !== '_id') {
-      entry[this.id] = id;
-    }
+    entry[this.id] = id;
 
     return nfcall(this.Model, 'update', query, entry, options)
       .then(() => this._findOrGet(id))

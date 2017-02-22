@@ -1,9 +1,14 @@
-import { expect } from 'chai';
+import {
+  expect
+} from 'chai';
 import path from 'path';
 import assert from 'assert';
 import feathers from 'feathers';
 import NeDB from 'nedb';
-import { base, example } from 'feathers-service-tests';
+import {
+  base,
+  example
+} from 'feathers-service-tests';
 import errors from 'feathers-errors';
 
 import server from './test-app';
@@ -16,20 +21,29 @@ function createService (name, options) {
   let counter = 0;
 
   const filename = path.join('db-data', name);
-  const db = new NeDB({ filename, autoload: true });
+  const db = new NeDB({
+    filename,
+    autoload: true
+  });
 
-  return service(Object.assign({ Model: db }, options)).extend({
+  return service(Object.assign({
+    Model: db
+  }, options)).extend({
     _find (params) {
       params.query = params.query || {};
       if (!params.query.$sort) {
-        params.query.$sort = { counter: 1 };
+        params.query.$sort = {
+          counter: 1
+        };
       }
 
       return this._super.apply(this, arguments);
     },
 
     create (raw, params) {
-      const convert = item => Object.assign({}, item, { counter: ++counter });
+      const convert = item => Object.assign({}, item, {
+        counter: ++counter
+      });
       const items = Array.isArray(raw) ? raw.map(convert) : convert(raw);
 
       return this._super(items, params);
@@ -40,21 +54,21 @@ function createService (name, options) {
 describe('NeDB Service', function () {
   const app = feathers()
     .use('/people', createService('people', {
-      events: [ 'testing' ]
+      events: ['testing']
     })).use('/people-customid', createService('people-customid', {
       id: 'customid',
-      events: [ 'testing' ]
+      events: ['testing']
     }));
 
   describe('Initialization', () => {
     it('throws an error when missing options', () =>
       expect(service.bind(null)).to
-        .throw('NeDB options have to be provided')
+      .throw('NeDB options have to be provided')
     );
 
     it('throws an error when missing a Model', () =>
       expect(service.bind(null, {})).to
-        .throw('NeDB datastore `Model` needs to be provided')
+      .throw('NeDB datastore `Model` needs to be provided')
     );
   });
 
@@ -65,6 +79,21 @@ describe('NeDB Service', function () {
 
     base(app, errors, 'people', '_id');
     base(app, errors, 'people-customid', 'customid');
+  });
+
+  describe('nedb params', () => {
+    it('allows to set params.nedb to upsert', () => {
+      return app.service('people').update('testing', {
+        name: 'Upsert tester'
+      }, {
+        nedb: {
+          upsert: true
+        }
+      }).then(person => assert.deepEqual(person, {
+        _id: 'testing',
+        name: 'Upsert tester'
+      }));
+    });
   });
 });
 
