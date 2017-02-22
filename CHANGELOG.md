@@ -1,5 +1,19 @@
 # Change Log
 
+## [v2.6.1](https://github.com/feathersjs/feathers-nedb/tree/v2.6.1) (2017-02-22)
+[Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.6.0...v2.6.1)
+
+**Closed issues:**
+
+- Upsert options not working [\#57](https://github.com/feathersjs/feathers-nedb/issues/57)
+- Switch to using NeDB-core [\#56](https://github.com/feathersjs/feathers-nedb/issues/56)
+- Does feathers-nedb use compactDatafile ? [\#55](https://github.com/feathersjs/feathers-nedb/issues/55)
+- service.remove\(null\) does not remove all items [\#54](https://github.com/feathersjs/feathers-nedb/issues/54)
+
+**Merged pull requests:**
+
+- Allow params.nedb upsert [\#58](https://github.com/feathersjs/feathers-nedb/pull/58) ([daffl](https://github.com/daffl))
+
 ## [v2.6.0](https://github.com/feathersjs/feathers-nedb/tree/v2.6.0) (2016-11-12)
 [Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.5.1...v2.6.0)
 
