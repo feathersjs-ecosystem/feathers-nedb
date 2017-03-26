@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.6.2](https://github.com/feathersjs/feathers-nedb/tree/v2.6.2) (2017-03-26)
+[Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.6.1...v2.6.2)
+
+**Closed issues:**
+
+- Can't use modifiers in update method after upgrade to 2.6.1 [\#59](https://github.com/feathersjs/feathers-nedb/issues/59)
+
+**Merged pull requests:**
+
+- Allow NeDB modifiers but keep upsert compatibility [\#60](https://github.com/feathersjs/feathers-nedb/pull/60) ([daffl](https://github.com/daffl))
+
 ## [v2.6.1](https://github.com/feathersjs/feathers-nedb/tree/v2.6.1) (2017-02-22)
 [Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.6.0...v2.6.1)
 
