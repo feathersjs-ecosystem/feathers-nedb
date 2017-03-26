@@ -94,6 +94,19 @@ describe('NeDB Service', function () {
         name: 'Upsert tester'
       }));
     });
+
+    it('allows NeDB modifiers (#59)', () => {
+      const service = app.service('people');
+
+      return service.create({
+        name: 'Modifier',
+        data: [ 'first' ]
+      }).then(person =>
+        service.update(person._id, { $push: { data: 'second' } })
+      ).then(updated =>
+        assert.deepEqual(updated.data, ['first', 'second'])
+      );
+    });
   });
 });
 
