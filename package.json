@@ -1,7 +1,7 @@
 {
   "name": "feathers-nedb",
   "description": "Feathers NeDB Service",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "homepage": "https://github.com/feathersjs/feathers-nedb",
   "repository": {
     "type": "git",
