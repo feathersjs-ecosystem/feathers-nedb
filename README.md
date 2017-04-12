@@ -1,5 +1,7 @@
 # feathers-nedb
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs/feathers-nedb.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/feathersjs/feathers-nedb.png?branch=master)](https://travis-ci.org/feathersjs/feathers-nedb)
 [![Code Climate](https://codeclimate.com/github/feathersjs/feathers-nedb/badges/gpa.svg)](https://codeclimate.com/github/feathersjs/feathers-nedb)
 [![Test Coverage](https://codeclimate.com/github/feathersjs/feathers-nedb/badges/coverage.svg)](https://codeclimate.com/github/feathersjs/feathers-nedb/coverage)
