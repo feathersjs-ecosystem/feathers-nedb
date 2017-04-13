@@ -165,7 +165,7 @@ class Service {
 
   update (id, data, params) {
     if (Array.isArray(data) || id === null) {
-      return Promise.reject('Not replacing multiple records. Did you mean `patch`?');
+      return Promise.reject(new errors.BadRequest('Not replacing multiple records. Did you mean `patch`?'));
     }
 
     const { query, options } = multiOptions(id, this.id, params);
