@@ -76,6 +76,6 @@
     "mocha": "^3.0.1",
     "nedb": "^1.5.1",
     "rimraf": "^2.5.4",
-    "semistandard": "^10.0.0"
+    "semistandard": "^11.0.0"
   }
 }
