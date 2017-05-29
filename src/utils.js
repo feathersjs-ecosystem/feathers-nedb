@@ -3,13 +3,14 @@ import filter from 'feathers-query-filters';
 export function multiOptions (id, idField, params) {
   let query = filter(params.query || {}).query;
   let options = Object.assign({ multi: true }, params.nedb || params.options);
+  let modifier = params.modifier || false;
 
   if (id !== null) {
     options.multi = false;
     query[idField] = id;
   }
 
-  return { query, options };
+  return { query, options, modifier };
 }
 
 export function getSelect (select) {
