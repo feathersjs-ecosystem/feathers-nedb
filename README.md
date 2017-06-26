@@ -37,7 +37,7 @@ Here's an example of a Feathers server with a `messages` nedb-service.
 import NeDB from 'nedb';
 import feathers from 'feathers';
 import bodyParser from 'body-parser';
-import service from '../lib';
+import service from 'feathers-nedb';
 
 const db = new NeDB({
   filename: './db-data/messages',
