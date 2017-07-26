@@ -23,11 +23,10 @@ npm install nedb feathers-nedb --save
 
 Please refer to the [Feathers database adapter documentation](https://docs.feathersjs.com/api/databases/common.html) for more details or directly at:
 
-- [NeDB](http://docs.feathersjs.com/api/databases/nedb.html) - The detailed documentation for this adapter
+- [NeDB](https://docs.feathersjs.com/api/databases/nedb.html) - The detailed documentation for this adapter
 - [Extending](https://docs.feathersjs.com/api/databases/common.html#extending-adapters) - How to extend a database adapter
-- [Pagination and Sorting](https://docs.feathersjs.com/api/databases/common.html#pagination) - How to use pagination and sorting for the database adapter
-- [Querying](https://docs.feathersjs.com/api/databases/querying.html) - The common adapter querying mechanism
-
+- [Pagination](https://docs.feathersjs.com/api/databases/common.html#pagination) - How to use pagination
+- [Querying and Sorting](https://docs.feathersjs.com/api/databases/querying.html) - The common adapter querying mechanism and sorting for the database adapter
 
 ## Complete Example
 
