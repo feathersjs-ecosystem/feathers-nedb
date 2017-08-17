@@ -107,6 +107,19 @@ describe('NeDB Service', function () {
         assert.deepEqual(updated.data, ['first', 'second'])
       );
     });
+
+    it('allows NeDB modifiers in patch (#65)', () => {
+      const service = app.service('people');
+
+      return service.create({
+        name: 'Modifier',
+        data: [ 'first' ]
+      }).then(person =>
+        service.patch(person._id, { $push: { data: 'second' } })
+      ).then(updated =>
+        assert.deepEqual(updated.data, ['first', 'second'])
+      );
+    });
   });
 });
 
