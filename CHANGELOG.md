@@ -1,5 +1,27 @@
 # Change Log
 
+## [v2.7.0](https://github.com/feathersjs/feathers-nedb/tree/v2.7.0) (2017-08-17)
+[Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.6.2...v2.7.0)
+
+**Closed issues:**
+
+- An in-range update of feathers-errors is breaking the build 🚨 [\#68](https://github.com/feathersjs/feathers-nedb/issues/68)
+- Can't use $select without including id field [\#66](https://github.com/feathersjs/feathers-nedb/issues/66)
+- Support special operators in PATCH [\#65](https://github.com/feathersjs/feathers-nedb/issues/65)
+
+**Merged pull requests:**
+
+- Test and fix for excluding id field if it is not selected [\#73](https://github.com/feathersjs/feathers-nedb/pull/73) ([daffl](https://github.com/daffl))
+- Fix and tests for patch to allow NeDB modifiers [\#72](https://github.com/feathersjs/feathers-nedb/pull/72) ([daffl](https://github.com/daffl))
+- Fixing broken docs links [\#71](https://github.com/feathersjs/feathers-nedb/pull/71) ([corymsmith](https://github.com/corymsmith))
+- fix import of feathers-nedb in README.md example [\#70](https://github.com/feathersjs/feathers-nedb/pull/70) ([arve0](https://github.com/arve0))
+- update links to current documentation [\#69](https://github.com/feathersjs/feathers-nedb/pull/69) ([arve0](https://github.com/arve0))
+- Update chai to the latest version 🚀 [\#67](https://github.com/feathersjs/feathers-nedb/pull/67) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update feathers-socketio to the latest version 🚀 [\#64](https://github.com/feathersjs/feathers-nedb/pull/64) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update feathers-service-tests to the latest version 🚀 [\#63](https://github.com/feathersjs/feathers-nedb/pull/63) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update semistandard to the latest version 🚀 [\#62](https://github.com/feathersjs/feathers-nedb/pull/62) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dependencies to enable Greenkeeper 🌴 [\#61](https://github.com/feathersjs/feathers-nedb/pull/61) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.6.2](https://github.com/feathersjs/feathers-nedb/tree/v2.6.2) (2017-03-26)
 [Full Changelog](https://github.com/feathersjs/feathers-nedb/compare/v2.6.1...v2.6.2)
 
