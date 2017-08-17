@@ -154,11 +154,18 @@ class Service {
             [this.id]: { $in: idList }
           }
         });
+        const updateData = { $set: {} };
 
-        return nfcall(this.Model, 'update', query, {
-          $set: omit(data, this.id, '_id')
-        }, options)
-        .then(() => this._findOrGet(id, findParams));
+        Object.keys(data).forEach(key => {
+          if (key.indexOf('$') === 0) {
+            updateData[key] = data[key];
+          } else if (key !== '_id' && key !== this.id) {
+            updateData.$set[key] = data[key];
+          }
+        });
+
+        return nfcall(this.Model, 'update', query, updateData, options)
+          .then(() => this._findOrGet(id, findParams));
       })
       .then(select(params, this.id));
   }
