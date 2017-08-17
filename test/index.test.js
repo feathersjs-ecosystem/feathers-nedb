@@ -95,6 +95,22 @@ describe('NeDB Service', function () {
       }));
     });
 
+    it('$select excludes id field if not explicitly selected (#66)', () => {
+      const service = app.service('people');
+
+      return service.create({
+        name: 'Modifier',
+        age: 222
+      }).then(() => {
+        service.find({
+          query: {
+            age: 222,
+            $select: [ 'name' ]
+          }
+        }).then(data => assert.ok(!data[0]._id));
+      });
+    });
+
     it('allows NeDB modifiers (#59)', () => {
       const service = app.service('people');
 
