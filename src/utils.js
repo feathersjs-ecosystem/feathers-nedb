@@ -14,8 +14,10 @@ export function multiOptions (id, idField, params) {
 
 export function getSelect (select) {
   if (Array.isArray(select)) {
-    var result = {};
+    const result = { _id: 0 };
+
     select.forEach(name => (result[name] = 1));
+
     return result;
   }
 
