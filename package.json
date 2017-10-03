@@ -73,7 +73,7 @@
     "feathers-service-tests": "^0.10.0",
     "feathers-socketio": "^2.0.0",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^3.0.1",
+    "mocha": "^4.0.0",
     "nedb": "^1.5.1",
     "rimraf": "^2.5.4",
     "semistandard": "^11.0.0"
