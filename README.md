@@ -1,83 +1,119 @@
 # feathers-nedb
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs/feathers-nedb.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs-ecosystem/feathers-nedb.svg)](https://greenkeeper.io/)
 
-[![Build Status](https://travis-ci.org/feathersjs/feathers-nedb.png?branch=master)](https://travis-ci.org/feathersjs/feathers-nedb)
-[![Code Climate](https://codeclimate.com/github/feathersjs/feathers-nedb/badges/gpa.svg)](https://codeclimate.com/github/feathersjs/feathers-nedb)
-[![Test Coverage](https://codeclimate.com/github/feathersjs/feathers-nedb/badges/coverage.svg)](https://codeclimate.com/github/feathersjs/feathers-nedb/coverage)
-[![Dependency Status](https://img.shields.io/david/feathersjs/feathers-nedb.svg?style=flat-square)](https://david-dm.org/feathersjs/feathers-nedb)
-[![Download Status](https://img.shields.io/npm/dm/feathers-nedb.svg?style=flat-square)](https://www.npmjs.com/package/feathers-nedb)
-[![Slack Status](http://slack.feathersjs.com/badge.svg)](http://slack.feathersjs.com)
+[![Build Status](https://travis-ci.org/feathersjs-ecosystem/feathers-nedb.png?branch=master)](https://travis-ci.org/feathersjs-ecosystem/feathers-nedb)
+[![Dependency Status](https://img.shields.io/david/feathersjs-ecosystem/feathers-nedb.svg?style=flat-square)](https://david-dm.org/feathersjs-ecosystem/feathers-nedb)
+[![Download Status](https://img.shields.io/npm/dm/feathers-nedb.svg?style=flat-square)]
 
-> Create an [NeDB](https://github.com/louischatriot/nedb) Service for [FeatherJS](https://github.com/feathersjs).
-
-
-## Installation
+[feathers-nedb](https://github.com/feathersjs-ecosystem/feathers-nedb/) is a database service adapter for [NeDB](https://github.com/louischatriot/nedb), an embedded datastore with a [MongoDB](https://www.mongodb.org/) like API. NeDB can store data in-memory or on the filesystem which makes it useful as a persistent storage without a separate database server.
 
 ```bash
-npm install nedb feathers-nedb --save
+$ npm install --save nedb feathers-nedb
 ```
 
+> __Important:__ `feathers-nedb` implements the [Feathers Common database adapter API](https://docs.feathersjs.com/api/databases/common.html) and [querying syntax](https://docs.feathersjs.com/api/databases/querying.html).
 
-## Documentation
+## API
 
-Please refer to the [Feathers database adapter documentation](https://docs.feathersjs.com/api/databases/common.html) for more details or directly at:
+### `service(options)`
 
-- [NeDB](https://docs.feathersjs.com/api/databases/nedb.html) - The detailed documentation for this adapter
-- [Extending](https://docs.feathersjs.com/api/databases/common.html#extending-adapters) - How to extend a database adapter
-- [Pagination](https://docs.feathersjs.com/api/databases/common.html#pagination) - How to use pagination
-- [Querying and Sorting](https://docs.feathersjs.com/api/databases/querying.html) - The common adapter querying mechanism and sorting for the database adapter
-
-## Complete Example
-
-Here's an example of a Feathers server with a `messages` nedb-service.
+Returns a new service instance initialized with the given options. `Model` has to be an NeDB database instance.
 
 ```js
-import NeDB from 'nedb';
-import feathers from 'feathers';
-import bodyParser from 'body-parser';
-import service from 'feathers-nedb';
+const NeDB = require('nedb');
+const service = require('feathers-nedb');
+
+// Create a NeDB instance
+const Model = new NeDB({
+  filename: './data/messages.db',
+  autoload: true
+});
+
+app.use('/messages', service({ Model }));
+app.use('/messages', service({ Model, id, events, paginate }));
+```
+
+__Options:__
+
+- `Model` (**required**) - The NeDB database instance. See the [NeDB API](https://github.com/louischatriot/nedb#api) for more information.
+- `id` (*optional*, default: `'_id'`) - The name of the id field property. By design, NeDB will always add an `_id` property.
+- `events` (*optional*) - A list of [custom service events](https://docs.feathersjs.com/api/events.html#custom-events) sent by this service
+- `paginate` (*optional*) - A [pagination object](https://docs.feathersjs.com/api/databases/common.html#pagination) containing a `default` and `max` page size
+
+### params.nedb
+
+When making a [service method](https://docs.feathersjs.com/api/services.html) call, `params` can contain an `nedb` property which allows to pass additional [NeDB options](https://github.com/louischatriot/nedb#updating-documents), for example to allow `upsert`:
+
+```js
+app.service('messages').update('someid', {
+  text: 'This message will be either created or updated'
+}, {
+  nedb: { upsert: true }
+});
+```
+
+## Example
+
+Here is an example of a Feathers server with a `messages` NeDB service that supports pagination and persists to `db-data/messages`:
+
+```
+$ npm install @feathersjs/feathers @feathersjs/errors @feathersjs/express @feathersjs/socketio feathers-nedb nedb
+```
+
+In `app.js`:
+
+```js
+const feathers = require('@feathersjs/feathers');
+const express = require('@feathersjs/express');
+const socketio = require('@feathersjs/socketio');
+
+const NeDB = require('nedb');
+const service = require('feathers-nedb');
 
 const db = new NeDB({
   filename: './db-data/messages',
   autoload: true
 });
 
-// Create a feathers instance.
-var app = feathers()
-  // Enable REST services
-  .configure(rest())
-  // Turn on JSON parser for REST services
-  .use(bodyParser.json())
-  // Turn on URL-encoded parser for REST services
-  .use(bodyParser.urlencoded({extended: true}));
-
+// Create an Express compatible Feathers application instance.
+const app = express(feathers());
+// Turn on JSON parser for REST services
+app.use(express.json());
+// Turn on URL-encoded parser for REST services
+app.use(express.urlencoded({extended: true}));
+// Enable REST services
+app.configure(express.rest());
+// Enable Socket.io services
+app.configure(socketio());
 // Connect to the db, create and register a Feathers service.
-app.use('messages', service({
+app.use('/messages', service({
   Model: db,
   paginate: {
     default: 2,
     max: 4
   }
 }));
+// Set up default error handler
+app.use(express.errorHandler());
+
+// Create a dummy Message
+app.service('messages').create({
+  text: 'Message created on server'
+}).then(message => console.log('Created message', message));
 
 // Start the server.
-var port = 3030;
-app.listen(port, function() {
+const port = 3030;
+
+app.listen(port, () => {
   console.log(`Feathers server listening on port ${port}`);
 });
 ```
 
-You can run this example by using `node example/app` and going to [localhost:3030/messages](http://localhost:3030/messages). You should see an empty array. That's because you don't have any Todos yet but you now have full CRUD for your new messages service.
-
+Run the example with `node app` and go to [localhost:3030/messages](http://localhost:3030/messages).
 
 ## License
 
 Copyright (c) 2016
 
 Licensed under the [MIT license](LICENSE).
-
-
-## Author
-
-[Marshall Thompson](https://github.com/marshallswain)

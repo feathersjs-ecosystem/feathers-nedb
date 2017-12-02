@@ -1,18 +1,14 @@
-import {
-  expect
-} from 'chai';
-import path from 'path';
-import assert from 'assert';
-import feathers from 'feathers';
-import NeDB from 'nedb';
-import {
-  base,
-  example
-} from 'feathers-service-tests';
-import errors from 'feathers-errors';
+const { expect } = require('chai');
 
-import server from './test-app';
-import service from '../src';
+const path = require('path');
+const assert = require('assert');
+const feathers = require('feathers');
+const errors = require('feathers-errors');
+const NeDB = require('nedb');
+
+const { base, example } = require('feathers-service-tests');
+const server = require('./test-app');
+const service = require('../lib');
 
 function createService (name, options) {
   // NeDB ids do not seem to be generated sequentially but sorted lexigraphically
