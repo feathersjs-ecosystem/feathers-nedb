@@ -2,8 +2,8 @@ const { expect } = require('chai');
 
 const path = require('path');
 const assert = require('assert');
-const feathers = require('feathers');
-const errors = require('feathers-errors');
+const feathers = require('@feathersjs/feathers');
+const errors = require('@feathersjs/errors');
 const NeDB = require('nedb');
 
 const { base, example } = require('feathers-service-tests');
