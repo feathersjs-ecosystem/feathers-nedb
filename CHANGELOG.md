@@ -1,5 +1,14 @@
 # Change Log
 
+## [v3.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v3.0.0) (2017-12-02)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.7.0...v3.0.0)
+
+**Merged pull requests:**
+
+- Upgrade to Feathers Buzzard \(v3\) [\#76](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/76) ([daffl](https://github.com/daffl))
+- Update to new plugin infrastructure [\#75](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/75) ([daffl](https://github.com/daffl))
+- Update mocha to the latest version 🚀 [\#74](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/74) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.7.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.7.0) (2017-08-17)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.6.2...v2.7.0)
 
