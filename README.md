@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/feathersjs-ecosystem/feathers-nedb.png?branch=master)](https://travis-ci.org/feathersjs-ecosystem/feathers-nedb)
 [![Dependency Status](https://img.shields.io/david/feathersjs-ecosystem/feathers-nedb.svg?style=flat-square)](https://david-dm.org/feathersjs-ecosystem/feathers-nedb)
-[![Download Status](https://img.shields.io/npm/dm/feathers-nedb.svg?style=flat-square)]
+[![Download Status](https://img.shields.io/npm/dm/feathers-nedb.svg?style=flat-square)](https://www.npmjs.com/package/feathers-nedb)
 
 [feathers-nedb](https://github.com/feathersjs-ecosystem/feathers-nedb/) is a database service adapter for [NeDB](https://github.com/louischatriot/nedb), an embedded datastore with a [MongoDB](https://www.mongodb.org/) like API. NeDB can store data in-memory or on the filesystem which makes it useful as a persistent storage without a separate database server.
 
