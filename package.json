@@ -2,13 +2,13 @@
   "name": "feathers-nedb",
   "description": "Feathers NeDB Service",
   "version": "2.7.0",
-  "homepage": "https://github.com/feathersjs/feathers-nedb",
+  "homepage": "https://github.com/feathersjs-ecosystem/feathers-nedb",
   "repository": {
     "type": "git",
-    "url": "https://github.com/feathersjs/feathers-nedb.git"
+    "url": "https://github.com/feathersjs-ecosystem/feathers-nedb.git"
   },
   "bugs": {
-    "url": "https://github.com/feathersjs/feathers-nedb/issues"
+    "url": "https://github.com/feathersjs-ecosystem/feathers-nedb/issues"
   },
   "license": "MIT",
   "keywords": [
