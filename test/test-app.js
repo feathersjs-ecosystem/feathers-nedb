@@ -1,7 +1,8 @@
 const NeDB = require('nedb');
-const feathers = require('feathers');
-const rest = require('feathers-rest');
-const socketio = require('feathers-socketio');
+const feathers = require('@feathersjs/feathers');
+const express = require('@feathersjs/express');
+const rest = require('@feathersjs/express/rest');
+const socketio = require('@feathersjs/socketio');
 const bodyParser = require('body-parser');
 const service = require('../lib');
 
@@ -40,8 +41,8 @@ const todoService = service({
 });
 
 // Create a feathers instance.
-var app = feathers()
-  // Enable REST services
+var app = express(// Enable REST services
+feathers())
   .configure(rest())
   // Enable Socket.io services
   .configure(socketio())
