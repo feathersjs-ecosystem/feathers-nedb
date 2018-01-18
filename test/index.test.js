@@ -59,12 +59,12 @@ describe('NeDB Service', function () {
   describe('Initialization', () => {
     it('throws an error when missing options', () =>
       expect(service.bind(null)).to
-      .throw('NeDB options have to be provided')
+        .throw('NeDB options have to be provided')
     );
 
     it('throws an error when missing a Model', () =>
       expect(service.bind(null, {})).to
-      .throw('NeDB datastore `Model` needs to be provided')
+        .throw('NeDB datastore `Model` needs to be provided')
     );
   });
 

@@ -42,7 +42,7 @@ const todoService = service({
 
 // Create a feathers instance.
 var app = express(// Enable REST services
-feathers())
+  feathers())
   .configure(rest())
   // Enable Socket.io services
   .configure(socketio())
