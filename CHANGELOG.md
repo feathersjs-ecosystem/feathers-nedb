@@ -1,5 +1,20 @@
 # Change Log
 
+## [v3.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v3.0.1) (2018-06-03)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v3.0.0...v3.0.1)
+
+**Closed issues:**
+
+- Cant update nedb record [\#82](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/82)
+- Typescript support [\#80](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/80)
+
+**Merged pull requests:**
+
+- Update uberproto to the latest version 🚀 [\#84](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/84) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Increase timeout to fix tests [\#79](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/79) ([daffl](https://github.com/daffl))
+- Update mocha to the latest version 🚀 [\#78](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/78) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update semistandard to the latest version 🚀 [\#77](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/77) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v3.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v3.0.0) (2017-12-02)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.7.0...v3.0.0)
 
