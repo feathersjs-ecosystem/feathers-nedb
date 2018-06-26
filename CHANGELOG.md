@@ -1,5 +1,13 @@
 # Change Log
 
+## [v3.1.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v3.1.0) (2018-06-26)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v3.0.1...v3.1.0)
+
+**Merged pull requests:**
+
+- add getModel method to allow overriding the Model at runtime [\#86](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/86) ([j2L4e](https://github.com/j2L4e))
+- Update shx to the latest version 🚀 [\#85](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/85) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v3.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v3.0.1) (2018-06-03)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v3.0.0...v3.0.1)
 
