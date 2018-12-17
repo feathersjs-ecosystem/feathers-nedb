@@ -1,5 +1,16 @@
 # Change Log
 
+## [v4.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v4.0.0) (2018-12-17)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v3.1.0...v4.0.0)
+
+**Closed issues:**
+
+- An in-range update of @feathersjs/socketio is breaking the build 🚨 [\#88](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/88)
+
+**Merged pull requests:**
+
+- Update to @feathersjs/adapter-commons and drop Node 6 [\#90](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/90) ([daffl](https://github.com/daffl))
+
 ## [v3.1.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v3.1.0) (2018-06-26)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v3.0.1...v3.1.0)
 
