@@ -105,17 +105,17 @@ const createService = (name, options) => {
   });
 
   return new SequentialService(Object.assign({
-    Model: db
+    Model: db,
+    events: [ 'testing' ]
   }, options));
 };
 
 describe('NeDB Service', () => {
   const app = feathers()
     .use('/people', createService('people', {
-      events: ['testing']
+      whitelist: [ '$regex' ]
     })).use('/people-customid', createService('people-customid', {
-      id: 'customid',
-      events: ['testing']
+      id: 'customid'
     }));
   const service = app.service('people');
 
@@ -189,6 +189,22 @@ describe('NeDB Service', () => {
       });
 
       assert.deepStrictEqual(updated.data, ['first', 'second']);
+
+      await service.remove(person._id);
+    });
+
+    it('allows whitelisted parameters in query', async () => {
+      const person = await service.create({
+        name: 'Param test'
+      });
+
+      const data = await service.find({
+        query: {
+          name: { $regex: /haha/ }
+        }
+      });
+
+      assert.strictEqual(data.length, 0);
 
       await service.remove(person._id);
     });
