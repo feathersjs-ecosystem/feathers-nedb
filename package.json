@@ -58,7 +58,6 @@
     "@feathersjs/socketio": "^3.2.7",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
-    "feathers-service-tests": "^0.10.2",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^5.2.0",
     "nedb": "^1.8.0",
