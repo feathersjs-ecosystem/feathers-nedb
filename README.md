@@ -40,6 +40,8 @@ __Options:__
 - `id` (*optional*, default: `'_id'`) - The name of the id field property. By design, NeDB will always add an `_id` property.
 - `events` (*optional*) - A list of [custom service events](https://docs.feathersjs.com/api/events.html#custom-events) sent by this service
 - `paginate` (*optional*) - A [pagination object](https://docs.feathersjs.com/api/databases/common.html#pagination) containing a `default` and `max` page size
+- `whitelist` (*optional*) - A list of additional query parameters to allow (e.g. `[ '$regex' ]`)
+- `multi` (*optional*) - Allow `create` with arrays and `update` and `remove` with `id` null to change multiple items. Can be `true` for all methods or an array of multi methods (e.g. `[ 'remove', 'create' ]`)
 
 ### params.nedb
 
