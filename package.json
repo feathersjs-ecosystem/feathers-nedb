@@ -48,7 +48,7 @@
     "node": ">= 6"
   },
   "dependencies": {
-    "@feathersjs/adapter-commons": "^1.0.2",
+    "@feathersjs/adapter-commons": "^2.0.0",
     "@feathersjs/commons": "^4.0.0",
     "@feathersjs/errors": "^3.3.4"
   },
