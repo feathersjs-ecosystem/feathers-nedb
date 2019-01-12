@@ -3,7 +3,7 @@ const assert = require('assert');
 const NeDB = require('nedb');
 const feathers = require('@feathersjs/feathers');
 const errors = require('@feathersjs/errors');
-const adapterTests = require('@feathersjs/adapter-commons/tests');
+const adapterTests = require('@feathersjs/adapter-tests');
 
 const { Service } = require('../lib');
 const testSuite = adapterTests([
@@ -64,7 +64,11 @@ const testSuite = adapterTests([
   '.find + paginate',
   '.find + paginate + $limit + $skip',
   '.find + paginate + $limit 0',
-  '.find + paginate + params'
+  '.find + paginate + params',
+  '.get + id + query id',
+  '.remove + id + query id',
+  '.update + id + query id',
+  '.patch + id + query id'
 ]);
 
 // NeDB ids do not seem to be generated sequentially but sorted lexigraphically

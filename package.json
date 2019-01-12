@@ -53,6 +53,7 @@
     "@feathersjs/errors": "^3.3.4"
   },
   "devDependencies": {
+    "@feathersjs/adapter-tests": "^1.0.1",
     "@feathersjs/express": "^1.2.7",
     "@feathersjs/feathers": "^3.2.3",
     "@feathersjs/socketio": "^3.2.7",
