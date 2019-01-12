@@ -1,5 +1,12 @@
 # Change Log
 
+## [v4.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v4.0.1) (2019-01-12)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v4.0.0...v4.0.1)
+
+**Merged pull requests:**
+
+- Update @feathersjs/adapter-commons to the latest version 🚀 [\#92](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/92) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v4.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v4.0.0) (2018-12-17)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v3.1.0...v4.0.0)
 
