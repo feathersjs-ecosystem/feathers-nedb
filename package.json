@@ -60,7 +60,7 @@
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^5.2.0",
+    "mocha": "^6.0.0",
     "nedb": "^1.8.0",
     "semistandard": "^13.0.1",
     "shx": "^0.3.2"
