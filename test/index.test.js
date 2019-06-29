@@ -212,6 +212,20 @@ describe('NeDB Service', () => {
 
       await service.remove(person._id);
     });
+
+    it('_patch sets default params', async () => {
+      const person = await service.create({
+        name: 'Param test'
+      });
+
+      const patchedPerson = await service._patch(person._id, {
+        name: 'Updated'
+      });
+
+      assert.strictEqual(patchedPerson.name, 'Updated');
+
+      await service.remove(person._id);
+    });
   });
 
   testSuite(app, errors, 'people', '_id');
