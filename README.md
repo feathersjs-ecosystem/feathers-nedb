@@ -55,6 +55,29 @@ app.service('messages').update('someid', {
 });
 ```
 
+### use of params on client
+On client you can't pass anything other than a query as the parameter. So you need to do it like this.
+
+```js
+// client side
+app.service('messages').update('someid', {
+  text: 'This message will be either created or updated'
+}, {
+  query: {nedb: { upsert: true }}
+});
+```
+then add a hook to the service to move the nedb options to the params object
+```js
+ctx => {
+  const nedb = ctx.params.query.nedb;
+  if (nedb) {
+    ctx.params.nedb = nedb;
+    delete ctx.params.query.nedb;
+  }
+  return ctx;
+}
+```
+
 ## Example
 
 Here is an example of a Feathers server with a `messages` NeDB service that supports pagination and persists to `db-data/messages`:
