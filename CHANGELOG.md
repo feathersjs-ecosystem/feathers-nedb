@@ -1,5 +1,19 @@
 # Change Log
 
+## [v4.0.2](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v4.0.2) (2019-06-29)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v4.0.1...v4.0.2)
+
+**Closed issues:**
+
+- Breaks on 3.1 to 4.0 but nothing in readme to indicate what they are [\#93](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/93)
+- upsert option with ID remapping is broken [\#91](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/91)
+
+**Merged pull requests:**
+
+- Add default params for \_ methods [\#95](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/95) ([daffl](https://github.com/daffl))
+- Update mocha to the latest version 🚀 [\#94](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/94) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update Readme [\#81](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/81) ([toddgeist](https://github.com/toddgeist))
+
 ## [v4.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v4.0.1) (2019-01-12)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v4.0.0...v4.0.1)
 
