@@ -1,4 +1,4 @@
-import { default as createService, Service } from 'feathers-memory';
+import { default as createService, Service } from 'feathers-nedb';
 import * as NeDB from 'nedb';
 
 const Model = new NeDB({
