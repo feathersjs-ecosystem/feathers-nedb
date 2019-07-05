@@ -3,6 +3,8 @@
   "description": "Feathers NeDB Service",
   "version": "4.0.2",
   "homepage": "https://github.com/feathersjs-ecosystem/feathers-nedb",
+  "main": "lib/",
+  "types": "types",
   "repository": {
     "type": "git",
     "url": "https://github.com/feathersjs-ecosystem/feathers-nedb.git"
@@ -26,7 +28,6 @@
     "Eric Kryski <e.kryski@gmail.com> (http://erickryski.com)",
     "David Luecke <daff@neyeon.de> (http://neyeon.com)"
   ],
-  "main": "lib/",
   "scripts": {
     "publish": "git push origin --tags && npm run changelog && git push origin",
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
@@ -34,9 +35,10 @@
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
     "lint": "semistandard --fix",
+    "dtslint": "dtslint types",
     "mocha": "shx rm -rf db-data && mocha --opts mocha.opts",
     "coverage": "shx rm -rf db-data && istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts",
-    "test": "npm run lint && npm run coverage",
+    "test": "npm run lint && npm run dtslint && npm run coverage",
     "start": "node example/app"
   },
   "semistandard": {
@@ -48,19 +50,21 @@
     "node": ">= 6"
   },
   "dependencies": {
-    "@feathersjs/adapter-commons": "^2.0.0",
+    "@feathersjs/adapter-commons": "^4.0.0-pre.4",
     "@feathersjs/commons": "^4.0.0",
-    "@feathersjs/errors": "^3.3.4"
+    "@feathersjs/errors": "^4.0.0-pre.4"
   },
   "devDependencies": {
-    "@feathersjs/adapter-tests": "^1.0.1",
-    "@feathersjs/express": "^1.2.7",
-    "@feathersjs/feathers": "^3.2.3",
-    "@feathersjs/socketio": "^3.2.7",
-    "body-parser": "^1.18.3",
+    "@feathersjs/adapter-tests": "^4.0.0-pre.4",
+    "@feathersjs/express": "^4.0.0-pre.4",
+    "@feathersjs/feathers": "^4.0.0-pre.4",
+    "@feathersjs/socketio": "^4.0.0-pre.4",
+    "@types/nedb": "^1.8.7",
+    "body-parser": "^1.19.0",
     "chai": "^4.2.0",
+    "dtslint": "^0.8.0",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^6.0.0",
+    "mocha": "^6.1.4",
     "nedb": "^1.8.0",
     "semistandard": "^13.0.1",
     "shx": "^0.3.2"
