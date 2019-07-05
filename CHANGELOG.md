@@ -1,5 +1,12 @@
 # Change Log
 
+## [v5.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.0.0) (2019-07-05)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v4.0.2...v5.0.0)
+
+**Merged pull requests:**
+
+- Add TypeScript definitions and upgrade tests to Feathers 4 [\#96](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/96) ([daffl](https://github.com/daffl))
+
 ## [v4.0.2](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v4.0.2) (2019-06-29)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v4.0.1...v4.0.2)
 
