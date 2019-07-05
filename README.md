@@ -139,6 +139,6 @@ Run the example with `node app` and go to [localhost:3030/messages](http://local
 
 ## License
 
-Copyright (c) 2016
+Copyright (c) 2019
 
 Licensed under the [MIT license](LICENSE).
