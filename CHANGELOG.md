@@ -1,5 +1,12 @@
 # Change Log
 
+## [v5.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.0.1) (2019-07-15)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.0.0...v5.0.1)
+
+**Merged pull requests:**
+
+- TS: Fix NeDB import Type [\#97](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/97) ([daffl](https://github.com/daffl))
+
 ## [v5.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.0.0) (2019-07-05)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v4.0.2...v5.0.0)
 
