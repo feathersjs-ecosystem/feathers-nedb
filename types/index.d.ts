@@ -1,7 +1,8 @@
 // TypeScript Version: 3.0
 import { Params, Paginated, Id, NullableId } from '@feathersjs/feathers';
 import { AdapterService, ServiceOptions, InternalServiceMethods } from '@feathersjs/adapter-commons';
-import * as NeDB from 'nedb';
+
+import NeDB = require('nedb');
 
 export interface NedbServiceOptions extends ServiceOptions {
   Model: NeDB;
