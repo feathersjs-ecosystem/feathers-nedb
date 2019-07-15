@@ -1,5 +1,5 @@
 import { default as createService, Service } from 'feathers-nedb';
-import * as NeDB from 'nedb';
+import NeDB from 'nedb';
 
 const Model = new NeDB({
   filename: './data/messages.db',
