@@ -8,7 +8,7 @@ export interface NedbServiceOptions extends ServiceOptions {
   Model: NeDB;
 }
 
-export class Service<T = any> extends AdapterService implements InternalServiceMethods<T> {
+export class Service<T = any> extends AdapterService<T> implements InternalServiceMethods<T> {
   options: NedbServiceOptions;
 
   constructor(config?: Partial<NedbServiceOptions>);
