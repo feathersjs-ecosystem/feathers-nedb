@@ -110,14 +110,14 @@ const createService = (name, options) => {
 
   return new SequentialService(Object.assign({
     Model: db,
-    events: [ 'testing' ]
+    events: ['testing']
   }, options));
 };
 
 describe('NeDB Service', () => {
   const app = feathers()
     .use('/people', createService('people', {
-      whitelist: [ '$regex' ]
+      whitelist: ['$regex']
     })).use('/people-customid', createService('people-customid', {
       id: 'customid'
     }));
@@ -158,7 +158,7 @@ describe('NeDB Service', () => {
       const data = await service.find({
         query: {
           age: 222,
-          $select: [ 'name' ]
+          $select: ['name']
         }
       });
 
@@ -170,7 +170,7 @@ describe('NeDB Service', () => {
     it('allows NeDB modifiers (#59)', async () => {
       const person = await service.create({
         name: 'Modifier',
-        data: [ 'first' ]
+        data: ['first']
       });
       const updated = await service.update(person._id, {
         $push: { data: 'second' }
@@ -186,7 +186,7 @@ describe('NeDB Service', () => {
 
       const person = await service.create({
         name: 'Modifier',
-        data: [ 'first' ]
+        data: ['first']
       });
       const updated = await service.patch(person._id, {
         $push: { data: 'second' }
