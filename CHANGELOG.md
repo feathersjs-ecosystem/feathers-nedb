@@ -1,5 +1,19 @@
 # Change Log
 
+## [v5.0.2](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.0.2) (2019-09-29)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.0.1...v5.0.2)
+
+**Closed issues:**
+
+- $select just '\_id' broken [\#100](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/100)
+
+**Merged pull requests:**
+
+- Fix to allow selecting only \_id [\#102](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/102) ([daffl](https://github.com/daffl))
+- Pass entity type to AdapterService\<T\> and update dependencies [\#101](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/101) ([daffl](https://github.com/daffl))
+- Update semistandard to the latest version 🚀 [\#99](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/99) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dtslint to the latest version 🚀 [\#98](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/98) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v5.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.0.1) (2019-07-15)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.0.0...v5.0.1)
 
