@@ -167,6 +167,24 @@ describe('NeDB Service', () => {
       await service.remove(mod._id);
     });
 
+    it('can $select with only id (#100)', async () => {
+      const mod = await service.create({
+        name: 'Modifier',
+        age: 343
+      });
+      const data = await service.find({
+        query: {
+          age: 343,
+          $select: ['_id']
+        }
+      });
+
+      assert.ok(data[0]._id);
+      assert.ok(!data[0].name);
+
+      await service.remove(mod._id);
+    });
+
     it('allows NeDB modifiers (#59)', async () => {
       const person = await service.create({
         name: 'Modifier',
