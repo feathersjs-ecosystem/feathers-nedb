@@ -1,5 +1,12 @@
 # Change Log
 
+## [v5.1.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.1.0) (2019-10-07)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.0.2...v5.1.0)
+
+**Merged pull requests:**
+
+- Update all dependencies [\#103](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/103) ([daffl](https://github.com/daffl))
+
 ## [v5.0.2](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.0.2) (2019-09-29)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.0.1...v5.0.2)
 
