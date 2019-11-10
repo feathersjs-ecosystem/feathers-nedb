@@ -62,7 +62,7 @@
     "@types/nedb": "^1.8.9",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
-    "dtslint": "^1.0.2",
+    "dtslint": "^2.0.0",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^6.2.1",
     "nedb": "^1.8.0",
