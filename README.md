@@ -21,7 +21,7 @@ $ npm install --save nedb feathers-nedb
 Returns a new service instance initialized with the given options. `Model` has to be an NeDB database instance.
 
 ```js
-const NeDB = require('nedb');
+const NeDB = require('nedb'); // seald-io/nedb also works
 const service = require('feathers-nedb');
 
 // Create a NeDB instance
