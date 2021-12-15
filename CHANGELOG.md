@@ -1,18 +1,5 @@
 # Changelog
 
-## [Unreleased](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/HEAD)
-
-[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v6.0.0...HEAD)
-
-**Merged pull requests:**
-
-- Upgrade plugin infrastructure, dependencies and use maintained NeDB fork [\#118](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/118) ([daffl](https://github.com/daffl))
-- Update dtslint to the latest version 🚀 [\#111](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/111) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
-- Update all dependencies and Types version [\#110](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/110) ([daffl](https://github.com/daffl))
-- Update dtslint to the latest version 🚀 [\#108](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/108) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
-- Update dtslint to version 1.0.2  [\#107](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/107) ([daffl](https://github.com/daffl))
-- Greenkeeper/@feathersjs/adapter commons 4.3.8 [\#105](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/105) ([daffl](https://github.com/daffl))
-
 ## [v6.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v6.0.0) (2021-12-15)
 
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.1.0...v6.0.0)
@@ -23,6 +10,15 @@
 - Find request returns all entries whatever the params [\#114](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/114)
 - An in-range update of @feathersjs/adapter-commons is breaking the build 🚨 [\#109](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/109)
 - An in-range update of @feathersjs/adapter-commons is breaking the build 🚨 [\#104](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/104)
+
+**Merged pull requests:**
+
+- Upgrade plugin infrastructure, dependencies and use maintained NeDB fork [\#118](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/118) ([daffl](https://github.com/daffl))
+- Update dtslint to the latest version 🚀 [\#111](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/111) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update all dependencies and Types version [\#110](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/110) ([daffl](https://github.com/daffl))
+- Update dtslint to the latest version 🚀 [\#108](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/108) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dtslint to version 1.0.2  [\#107](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/107) ([daffl](https://github.com/daffl))
+- Greenkeeper/@feathersjs/adapter commons 4.3.8 [\#105](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/105) ([daffl](https://github.com/daffl))
 
 ## [v5.1.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.1.0) (2019-10-07)
 
