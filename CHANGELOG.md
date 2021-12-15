@@ -1,6 +1,31 @@
-# Change Log
+# Changelog
+
+## [Unreleased](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/HEAD)
+
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v6.0.0...HEAD)
+
+**Merged pull requests:**
+
+- Upgrade plugin infrastructure, dependencies and use maintained NeDB fork [\#118](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/118) ([daffl](https://github.com/daffl))
+- Update dtslint to the latest version 🚀 [\#111](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/111) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update all dependencies and Types version [\#110](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/110) ([daffl](https://github.com/daffl))
+- Update dtslint to the latest version 🚀 [\#108](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/108) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dtslint to version 1.0.2  [\#107](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/107) ([daffl](https://github.com/daffl))
+- Greenkeeper/@feathersjs/adapter commons 4.3.8 [\#105](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/105) ([daffl](https://github.com/daffl))
+
+## [v6.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v6.0.0) (2021-12-15)
+
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.1.0...v6.0.0)
+
+**Closed issues:**
+
+- Switch to Promise based API [\#115](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/115)
+- Find request returns all entries whatever the params [\#114](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/114)
+- An in-range update of @feathersjs/adapter-commons is breaking the build 🚨 [\#109](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/109)
+- An in-range update of @feathersjs/adapter-commons is breaking the build 🚨 [\#104](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/104)
 
 ## [v5.1.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.1.0) (2019-10-07)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.0.2...v5.1.0)
 
 **Merged pull requests:**
@@ -8,6 +33,7 @@
 - Update all dependencies [\#103](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/103) ([daffl](https://github.com/daffl))
 
 ## [v5.0.2](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.0.2) (2019-09-29)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.0.1...v5.0.2)
 
 **Closed issues:**
@@ -22,6 +48,7 @@
 - Update dtslint to the latest version 🚀 [\#98](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/98) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v5.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.0.1) (2019-07-15)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.0.0...v5.0.1)
 
 **Merged pull requests:**
@@ -29,13 +56,18 @@
 - TS: Fix NeDB import Type [\#97](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/97) ([daffl](https://github.com/daffl))
 
 ## [v5.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v5.0.0) (2019-07-05)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v4.0.2...v5.0.0)
 
 **Merged pull requests:**
 
 - Add TypeScript definitions and upgrade tests to Feathers 4 [\#96](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/96) ([daffl](https://github.com/daffl))
+- Add default params for \_ methods [\#95](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/95) ([daffl](https://github.com/daffl))
+- Update mocha to the latest version 🚀 [\#94](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/94) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update Readme [\#81](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/81) ([toddgeist](https://github.com/toddgeist))
 
 ## [v4.0.2](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v4.0.2) (2019-06-29)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v4.0.1...v4.0.2)
 
 **Closed issues:**
@@ -43,13 +75,8 @@
 - Breaks on 3.1 to 4.0 but nothing in readme to indicate what they are [\#93](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/93)
 - upsert option with ID remapping is broken [\#91](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/91)
 
-**Merged pull requests:**
-
-- Add default params for \_ methods [\#95](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/95) ([daffl](https://github.com/daffl))
-- Update mocha to the latest version 🚀 [\#94](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/94) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
-- Update Readme [\#81](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/81) ([toddgeist](https://github.com/toddgeist))
-
 ## [v4.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v4.0.1) (2019-01-12)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v4.0.0...v4.0.1)
 
 **Merged pull requests:**
@@ -57,6 +84,7 @@
 - Update @feathersjs/adapter-commons to the latest version 🚀 [\#92](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/92) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v4.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v4.0.0) (2018-12-17)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v3.1.0...v4.0.0)
 
 **Closed issues:**
@@ -68,6 +96,7 @@
 - Update to @feathersjs/adapter-commons and drop Node 6 [\#90](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/90) ([daffl](https://github.com/daffl))
 
 ## [v3.1.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v3.1.0) (2018-06-26)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v3.0.1...v3.1.0)
 
 **Merged pull requests:**
@@ -76,6 +105,7 @@
 - Update shx to the latest version 🚀 [\#85](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/85) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v3.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v3.0.1) (2018-06-03)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v3.0.0...v3.0.1)
 
 **Closed issues:**
@@ -91,6 +121,7 @@
 - Update semistandard to the latest version 🚀 [\#77](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/77) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v3.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v3.0.0) (2017-12-02)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.7.0...v3.0.0)
 
 **Merged pull requests:**
@@ -100,6 +131,7 @@
 - Update mocha to the latest version 🚀 [\#74](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/74) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v2.7.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.7.0) (2017-08-17)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.6.2...v2.7.0)
 
 **Closed issues:**
@@ -122,6 +154,7 @@
 - Update dependencies to enable Greenkeeper 🌴 [\#61](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/61) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v2.6.2](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.6.2) (2017-03-26)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.6.1...v2.6.2)
 
 **Closed issues:**
@@ -133,6 +166,7 @@
 - Allow NeDB modifiers but keep upsert compatibility [\#60](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/60) ([daffl](https://github.com/daffl))
 
 ## [v2.6.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.6.1) (2017-02-22)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.6.0...v2.6.1)
 
 **Closed issues:**
@@ -147,6 +181,7 @@
 - Allow params.nedb upsert [\#58](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/58) ([daffl](https://github.com/daffl))
 
 ## [v2.6.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.6.0) (2016-11-12)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.5.1...v2.6.0)
 
 **Closed issues:**
@@ -163,6 +198,7 @@
 - adding code coverage reporting [\#45](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/45) ([ekryski](https://github.com/ekryski))
 
 ## [v2.5.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.5.1) (2016-09-21)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.5.0...v2.5.1)
 
 **Closed issues:**
@@ -174,6 +210,7 @@
 - Patch and create multiple [\#40](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/40) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v2.5.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.5.0) (2016-09-12)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.4.1...v2.5.0)
 
 **Closed issues:**
@@ -187,6 +224,7 @@
 - Update mocha to version 3.0.0 🚀 [\#34](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/34) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v2.4.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.4.1) (2016-07-21)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.4.0...v2.4.1)
 
 **Closed issues:**
@@ -200,6 +238,7 @@
 - feathers-service-tests@0.6.2 breaks build 🚨 [\#31](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/31) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v2.4.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.4.0) (2016-07-08)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.3.0...v2.4.0)
 
 **Closed issues:**
@@ -211,6 +250,7 @@
 - feathers-service-tests@0.6.1 breaks build 🚨 [\#30](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/30) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v2.3.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.3.0) (2016-06-17)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.2.3...v2.3.0)
 
 **Closed issues:**
@@ -228,6 +268,7 @@
 - fix errors in update and patch with custom id [\#20](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/20) ([farwayer](https://github.com/farwayer))
 
 ## [v2.2.3](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.2.3) (2016-04-02)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.2.2...v2.2.3)
 
 **Closed issues:**
@@ -239,6 +280,7 @@
 - Custom id in multiOptions [\#19](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/19) ([farwayer](https://github.com/farwayer))
 
 ## [v2.2.2](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.2.2) (2016-02-24)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.2.1...v2.2.2)
 
 **Merged pull requests:**
@@ -246,6 +288,7 @@
 - bumping feathers errors version [\#17](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/17) ([ekryski](https://github.com/ekryski))
 
 ## [v2.2.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.2.1) (2016-02-22)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.2.0...v2.2.1)
 
 **Merged pull requests:**
@@ -253,6 +296,7 @@
 - Example update [\#16](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/16) ([ekryski](https://github.com/ekryski))
 
 ## [v2.2.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.2.0) (2016-02-21)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.1.0...v2.2.0)
 
 **Closed issues:**
@@ -264,6 +308,7 @@
 - adding back the options.id field. Closes \#14. [\#15](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/15) ([ekryski](https://github.com/ekryski))
 
 ## [v2.1.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.1.0) (2016-01-31)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.0.3...v2.1.0)
 
 **Merged pull requests:**
@@ -271,6 +316,7 @@
 - Use internal methods instead of service methods directly [\#12](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/12) ([daffl](https://github.com/daffl))
 
 ## [v2.0.3](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.0.3) (2016-01-23)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.0.2...v2.0.3)
 
 **Closed issues:**
@@ -279,6 +325,7 @@
 - Updating documents [\#5](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/5)
 
 ## [v2.0.2](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.0.2) (2016-01-22)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.0.1...v2.0.2)
 
 **Merged pull requests:**
@@ -286,6 +333,7 @@
 - Adding nsp check [\#10](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/10) ([marshallswain](https://github.com/marshallswain))
 
 ## [v2.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.0.1) (2016-01-12)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v2.0.0...v2.0.1)
 
 **Closed issues:**
@@ -293,6 +341,7 @@
 - NeDB ids are not sequential but ordered alphabetically by default [\#9](https://github.com/feathersjs-ecosystem/feathers-nedb/issues/9)
 
 ## [v2.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v2.0.0) (2016-01-06)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v1.2.0...v2.0.0)
 
 **Closed issues:**
@@ -302,21 +351,22 @@
 **Merged pull requests:**
 
 - Migration to new service tests and ES6 [\#8](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/8) ([daffl](https://github.com/daffl))
-
-## [v1.2.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v1.2.0) (2015-11-08)
-[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v1.0.1...v1.2.0)
-
-**Merged pull requests:**
-
 - Migrating to shared feathers-service-tests suite [\#4](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/4) ([daffl](https://github.com/daffl))
 
+## [v1.2.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v1.2.0) (2015-11-08)
+
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v1.0.1...v1.2.0)
+
 ## [v1.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v1.0.1) (2015-10-25)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v1.0.0...v1.0.1)
 
 ## [v1.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v1.0.0) (2015-07-27)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v0.1.1...v1.0.0)
 
 ## [v0.1.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v0.1.1) (2015-07-27)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v0.1.0...v0.1.1)
 
 **Closed issues:**
@@ -330,5 +380,8 @@
 
 ## [v0.1.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v0.1.0) (2015-07-07)
 
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/15c2365facb62c5ff9d631778fd89dcbe2bd63b3...v0.1.0)
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+
+
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*
