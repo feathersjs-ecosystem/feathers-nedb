@@ -1,5 +1,5 @@
 import { default as createService, Service } from 'feathers-nedb';
-import NeDB from 'nedb';
+import NeDB from '@seald-io/nedb';
 
 const Model = new NeDB({
   filename: './data/messages.db',
