@@ -2,7 +2,7 @@
 
 [![Download Status](https://img.shields.io/npm/dm/feathers-nedb.svg?style=flat-square)](https://www.npmjs.com/package/feathers-nedb)
 
-[feathers-nedb](https://github.com/feathersjs-ecosystem/feathers-nedb/) is a database service adapter for [NeDB](https://github.com/louischatriot/nedb), an embedded datastore with a [MongoDB](https://www.mongodb.org/) like API. NeDB can store data in-memory or on the filesystem which makes it useful as a persistent storage without a separate database server.
+[feathers-nedb](https://github.com/feathersjs-ecosystem/feathers-nedb/) is a database service adapter for [NeDB](https://github.com/seald/nedb), an embedded datastore with a [MongoDB](https://www.mongodb.org/) like API. NeDB can store data in-memory or on the filesystem which makes it useful as a persistent storage without a separate database server.
 
 ```bash
 $ npm install --save @seald-io/nedb feathers-nedb
@@ -32,7 +32,7 @@ app.use('/messages', service({ Model, id, events, paginate }));
 
 __Options:__
 
-- `Model` (**required**) - The NeDB database instance. See the [NeDB API](https://github.com/louischatriot/nedb#api) for more information.
+- `Model` (**required**) - The NeDB database instance. See the [NeDB API](https://github.com/seald/nedb#documentation) for more information.
 - `id` (*optional*, default: `'_id'`) - The name of the id field property. By design, NeDB will always add an `_id` property.
 - `events` (*optional*) - A list of [custom service events](https://docs.feathersjs.com/api/events.html#custom-events) sent by this service
 - `paginate` (*optional*) - A [pagination object](https://docs.feathersjs.com/api/databases/common.html#pagination) containing a `default` and `max` page size
@@ -41,7 +41,7 @@ __Options:__
 
 ### params.nedb
 
-When making a [service method](https://docs.feathersjs.com/api/services.html) call, `params` can contain an `nedb` property which allows to pass additional [NeDB options](https://github.com/louischatriot/nedb#updating-documents), for example to allow `upsert`:
+When making a [service method](https://docs.feathersjs.com/api/services.html) call, `params` can contain an `nedb` property which allows to pass additional [NeDB options](https://github.com/seald/nedb#updating-documents), for example to allow `upsert`:
 
 ```js
 app.service('messages').update('someid', {
