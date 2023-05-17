@@ -1,5 +1,7 @@
 # feathers-nedb
 
+> :warning: **DEPRECATED**: Not compatible with Feathers v5. Please use [another adapter instead](https://www.npmjs.com/search?ranking=optimal&q=FeathersJS%20database%20adapter).
+
 [![Download Status](https://img.shields.io/npm/dm/feathers-nedb.svg?style=flat-square)](https://www.npmjs.com/package/feathers-nedb)
 
 [feathers-nedb](https://github.com/feathersjs-ecosystem/feathers-nedb/) is a database service adapter for [NeDB](https://github.com/seald/nedb), an embedded datastore with a [MongoDB](https://www.mongodb.org/) like API. NeDB can store data in-memory or on the filesystem which makes it useful as a persistent storage without a separate database server.
