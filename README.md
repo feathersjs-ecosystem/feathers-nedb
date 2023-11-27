@@ -1,7 +1,5 @@
 # feathers-nedb
 
-> :warning: **DEPRECATED**: Not compatible with Feathers v5. Please use [another adapter instead](https://www.npmjs.com/search?ranking=optimal&q=FeathersJS%20database%20adapter).
-
 [![Download Status](https://img.shields.io/npm/dm/feathers-nedb.svg?style=flat-square)](https://www.npmjs.com/package/feathers-nedb)
 
 [feathers-nedb](https://github.com/feathersjs-ecosystem/feathers-nedb/) is a database service adapter for [NeDB](https://github.com/seald/nedb), an embedded datastore with a [MongoDB](https://www.mongodb.org/) like API. NeDB can store data in-memory or on the filesystem which makes it useful as a persistent storage without a separate database server.
@@ -10,7 +8,7 @@
 $ npm install --save @seald-io/nedb feathers-nedb
 ```
 
-> __Important:__ `feathers-nedb` implements the [Feathers Common database adapter API](https://docs.feathersjs.com/api/databases/common.html) and [querying syntax](https://docs.feathersjs.com/api/databases/querying.html).
+> **Important:** `feathers-nedb` implements the [Feathers Common database adapter API](https://docs.feathersjs.com/api/databases/common.html) and [querying syntax](https://docs.feathersjs.com/api/databases/querying.html).
 
 ## API
 
@@ -19,61 +17,72 @@ $ npm install --save @seald-io/nedb feathers-nedb
 Returns a new service instance initialized with the given options. `Model` has to be an NeDB database instance.
 
 ```js
-const NeDB = require('@seald-io/nedb');
-const service = require('feathers-nedb');
+const NeDB = require("@seald-io/nedb");
+const service = require("feathers-nedb");
 
 // Create a NeDB instance
 const Model = new NeDB({
-  filename: './data/messages.db',
-  autoload: true
+  filename: "./data/messages.db",
+  autoload: true,
 });
 
-app.use('/messages', service({ Model }));
-app.use('/messages', service({ Model, id, events, paginate }));
+app.use("/messages", service({ Model }));
+app.use("/messages", service({ Model, id, events, paginate }));
 ```
 
-__Options:__
+**Options:**
 
 - `Model` (**required**) - The NeDB database instance. See the [NeDB API](https://github.com/seald/nedb#documentation) for more information.
-- `id` (*optional*, default: `'_id'`) - The name of the id field property. By design, NeDB will always add an `_id` property.
-- `events` (*optional*) - A list of [custom service events](https://docs.feathersjs.com/api/events.html#custom-events) sent by this service
-- `paginate` (*optional*) - A [pagination object](https://docs.feathersjs.com/api/databases/common.html#pagination) containing a `default` and `max` page size
-- `whitelist` (*optional*) - A list of additional query parameters to allow (e.g. `[ '$regex' ]`)
-- `multi` (*optional*) - Allow `create` with arrays and `update` and `remove` with `id` null to change multiple items. Can be `true` for all methods or an array of multi methods (e.g. `[ 'remove', 'create' ]`)
+- `id` (_optional_, default: `'_id'`) - The name of the id field property. By design, NeDB will always add an `_id` property.
+- `events` (_optional_) - A list of [custom service events](https://docs.feathersjs.com/api/events.html#custom-events) sent by this service
+- `paginate` (_optional_) - A [pagination object](https://docs.feathersjs.com/api/databases/common.html#pagination) containing a `default` and `max` page size
+- `whitelist` (_optional_) - A list of additional query parameters to allow (e.g. `[ '$regex' ]`)
+- `multi` (_optional_) - Allow `create` with arrays and `update` and `remove` with `id` null to change multiple items. Can be `true` for all methods or an array of multi methods (e.g. `[ 'remove', 'create' ]`)
 
 ### params.nedb
 
 When making a [service method](https://docs.feathersjs.com/api/services.html) call, `params` can contain an `nedb` property which allows to pass additional [NeDB options](https://github.com/seald/nedb#updating-documents), for example to allow `upsert`:
 
 ```js
-app.service('messages').update('someid', {
-  text: 'This message will be either created or updated'
-}, {
-  nedb: { upsert: true }
-});
+app.service("messages").update(
+  "someid",
+  {
+    text: "This message will be either created or updated",
+  },
+  {
+    nedb: { upsert: true },
+  }
+);
 ```
 
 ### use of params on client
+
 On client you can't pass anything other than a query as the parameter. So you need to do it like this.
 
 ```js
 // client side
-app.service('messages').update('someid', {
-  text: 'This message will be either created or updated'
-}, {
-  query: {nedb: { upsert: true }}
-});
+app.service("messages").update(
+  "someid",
+  {
+    text: "This message will be either created or updated",
+  },
+  {
+    query: { nedb: { upsert: true } },
+  }
+);
 ```
+
 then add a hook to the service to move the nedb options to the params object
+
 ```js
-ctx => {
+(ctx) => {
   const nedb = ctx.params.query.nedb;
   if (nedb) {
     ctx.params.nedb = nedb;
     delete ctx.params.query.nedb;
   }
   return ctx;
-}
+};
 ```
 
 ## Example
@@ -87,16 +96,16 @@ $ npm install @feathersjs/feathers @feathersjs/errors @feathersjs/express @feath
 In `app.js`:
 
 ```js
-const feathers = require('@feathersjs/feathers');
-const express = require('@feathersjs/express');
-const socketio = require('@feathersjs/socketio');
+const feathers = require("@feathersjs/feathers");
+const express = require("@feathersjs/express");
+const socketio = require("@feathersjs/socketio");
 
-const NeDB = require('@seald-io/nedb');
-const service = require('feathers-nedb');
+const NeDB = require("@seald-io/nedb");
+const service = require("feathers-nedb");
 
 const db = new NeDB({
-  filename: './db-data/messages',
-  autoload: true
+  filename: "./db-data/messages",
+  autoload: true,
 });
 
 // Create an Express compatible Feathers application instance.
@@ -104,26 +113,32 @@ const app = express(feathers());
 // Turn on JSON parser for REST services
 app.use(express.json());
 // Turn on URL-encoded parser for REST services
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 // Enable REST services
 app.configure(express.rest());
 // Enable Socket.io services
 app.configure(socketio());
 // Connect to the db, create and register a Feathers service.
-app.use('/messages', service({
-  Model: db,
-  paginate: {
-    default: 2,
-    max: 4
-  }
-}));
+app.use(
+  "/messages",
+  service({
+    Model: db,
+    paginate: {
+      default: 2,
+      max: 4,
+    },
+  })
+);
 // Set up default error handler
 app.use(express.errorHandler());
 
 // Create a dummy Message
-app.service('messages').create({
-  text: 'Message created on server'
-}).then(message => console.log('Created message', message));
+app
+  .service("messages")
+  .create({
+    text: "Message created on server",
+  })
+  .then((message) => console.log("Created message", message));
 
 // Start the server.
 const port = 3030;

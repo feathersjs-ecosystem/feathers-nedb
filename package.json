@@ -52,7 +52,7 @@
     ]
   },
   "engines": {
-    "node": ">= 14"
+    "node": ">= 16"
   },
   "dependencies": {
     "@feathersjs/adapter-commons": "^5.0.11",
