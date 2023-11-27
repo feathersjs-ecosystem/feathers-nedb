@@ -4,7 +4,6 @@
   "version": "6.0.0",
   "homepage": "https://github.com/feathersjs-ecosystem/feathers-nedb",
   "main": "lib/",
-  "types": "types",
   "repository": {
     "type": "git",
     "url": "https://github.com/feathersjs-ecosystem/feathers-nedb.git"
@@ -43,12 +42,9 @@
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
-    "lint": "semistandard --fix",
-    "dtslint": "dtslint types",
-    "mocha": "mocha --timeout 5000 --recursive test/ --exit",
     "update-dependencies": "ncu -u",
-    "coverage": "nyc npm run mocha",
-    "test": "npm run lint && npm run dtslint && npm run coverage"
+    "compile": "shx rm -rf lib/ && tsc",
+    "test": "shx rm -rf db-data/ && mocha --recursive test/**.test.ts test/**/*.test.ts"
   },
   "semistandard": {
     "env": [
@@ -59,25 +55,24 @@
     "node": ">= 14"
   },
   "dependencies": {
-    "@feathersjs/adapter-commons": "^4.5.15",
-    "@feathersjs/commons": "^4.5.15",
-    "@feathersjs/errors": "^4.5.15"
+    "@feathersjs/adapter-commons": "^5.0.11",
+    "@feathersjs/commons": "^5.0.11",
+    "@feathersjs/errors": "^5.0.11"
+  },
+  "peerDependencies": {
+    "@seald-io/nedb": "^4.0.2"
   },
   "devDependencies": {
-    "@feathersjs/adapter-tests": "^4.5.15",
-    "@feathersjs/express": "^4.5.15",
-    "@feathersjs/feathers": "^4.5.15",
-    "@feathersjs/socketio": "^4.5.15",
-    "@seald-io/nedb": "^3.0.0",
+    "@feathersjs/adapter-tests": "^5.0.11",
+    "@feathersjs/express": "^5.0.11",
+    "@feathersjs/feathers": "^5.0.11",
+    "@feathersjs/socketio": "^5.0.11",
     "body-parser": "^1.20.0",
-    "chai": "^4.3.6",
-    "dtslint": "^4.2.1",
-    "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^10.0.0",
+    "@types/mocha": "^10.0.2",
+    "mocha": "^10.2.0",
     "npm-check-updates": "^16.0.6",
-    "nyc": "^15.1.0",
-    "semistandard": "^16.0.1",
     "shx": "^0.3.4",
-    "typescript": "^4.8.2"
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   }
 }
