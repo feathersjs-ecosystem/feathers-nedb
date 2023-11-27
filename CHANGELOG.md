@@ -1,5 +1,26 @@
 # Changelog
 
+## [Unreleased](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/HEAD)
+
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v7.0.0...HEAD)
+
+**Merged pull requests:**
+
+- make nedb work with feathers 5 [\#145](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/145) ([rmanibus](https://github.com/rmanibus))
+- docs: Deprecate [\#138](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/138) ([FossPrime](https://github.com/FossPrime))
+- chore\(dependencies\): Update all dependencies [\#128](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/128) ([daffl](https://github.com/daffl))
+- chore\(dependencies\): Update all dependencies [\#127](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/127) ([daffl](https://github.com/daffl))
+- chore\(dependencies\): Update all dependencies [\#126](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/126) ([daffl](https://github.com/daffl))
+- chore\(dependencies\): Update all dependencies [\#125](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/125) ([daffl](https://github.com/daffl))
+- Update README.md [\#123](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/123) ([fratzinger](https://github.com/fratzinger))
+- chore\(dependencies\): Update all dependencies [\#121](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/121) ([daffl](https://github.com/daffl))
+- chore\(dependencies\): Update all dependencies [\#120](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/120) ([daffl](https://github.com/daffl))
+- chore\(dependencies\): Update all dependencies [\#119](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/119) ([daffl](https://github.com/daffl))
+
+## [v7.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v7.0.0) (2023-11-27)
+
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v6.0.0...v7.0.0)
+
 ## [v6.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v6.0.0) (2021-12-15)
 
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v5.1.0...v6.0.0)
