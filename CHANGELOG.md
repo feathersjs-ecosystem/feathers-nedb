@@ -1,8 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/HEAD)
+## [v7.0.1](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v7.0.1) (2023-11-28)
 
-[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v7.0.0...HEAD)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v7.0.0...v7.0.1)
+
+## [v7.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v7.0.0) (2023-11-27)
+
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v6.0.0...v7.0.0)
 
 **Merged pull requests:**
 
@@ -16,10 +20,6 @@
 - chore\(dependencies\): Update all dependencies [\#121](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/121) ([daffl](https://github.com/daffl))
 - chore\(dependencies\): Update all dependencies [\#120](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/120) ([daffl](https://github.com/daffl))
 - chore\(dependencies\): Update all dependencies [\#119](https://github.com/feathersjs-ecosystem/feathers-nedb/pull/119) ([daffl](https://github.com/daffl))
-
-## [v7.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v7.0.0) (2023-11-27)
-
-[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-nedb/compare/v6.0.0...v7.0.0)
 
 ## [v6.0.0](https://github.com/feathersjs-ecosystem/feathers-nedb/tree/v6.0.0) (2021-12-15)
 
